@@ -9,15 +9,17 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { 
-  MapPin, 
-  BedDouble, 
-  Bath, 
-  Square, 
-  Calendar, 
-  Download, 
-  Phone, 
-  MessageSquare, 
+import { usePropertyImages } from '@/hooks/useProeprtiesImages';
+
+import {
+  MapPin,
+  BedDouble,
+  Bath,
+  Square,
+  Calendar,
+  Download,
+  Phone,
+  MessageSquare,
   Camera,
   Play,
   Shield,
@@ -33,10 +35,13 @@ export const PropertyDetail: React.FC = () => {
   const { property, loading, error } = useProperty(id!);
   const { paymentPlan } = usePaymentPlan(id!);
   const { updates } = useProjectUpdates(id!);
-  
-  const [selectedImage, setSelectedImage] = useState(0);
 
-  if (loading) {
+  // Fetch property images from Supabase
+  const { images, loading: imagesLoading } = usePropertyImages(id!);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [hoveredImage, setHoveredImage] = useState<number | null>(null);
+
+  if (loading || imagesLoading) {
     return (
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
@@ -62,7 +67,9 @@ export const PropertyDetail: React.FC = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Property Not Found</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">
+            Property Not Found
+          </h1>
           <p className="text-muted-foreground mb-6">
             {error || "The property you're looking for doesn't exist."}
           </p>
@@ -72,50 +79,65 @@ export const PropertyDetail: React.FC = () => {
     );
   }
 
-  const propertyImages = [
-    property.main_image_url || '/placeholder.svg',
-    '/placeholder.svg',
-    '/placeholder.svg',
-    '/placeholder.svg'
-  ];
+  // ✅ Always return array of objects with url + alt
+const propertyImages = Array.isArray(images) && images.length > 0
+  ? images.map((img, i) => ({
+      url: img.image_url,
+      alt: img.alt_text || `${property.title} - Image ${i + 1}`,
+    }))
+  : [
+      {
+        url: property.main_image_url || "/placeholder.svg",
+        alt: property.title,
+      },
+    ];
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
+
+  const formatCurrency = (amount: number) =>
+    new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
       maximumFractionDigits: 0,
     }).format(amount);
-  };
 
-  const formatLocation = (location: string) => {
-    return location.charAt(0).toUpperCase() + location.slice(1);
-  };
+  const formatLocation = (location: string) =>
+    location.charAt(0).toUpperCase() + location.slice(1);
 
-  const formatPropertyType = (type: string) => {
-    return type.split('_').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ');
-  };
+  const formatPropertyType = (type: string) =>
+    type
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
 
-  const milestones = paymentPlan?.milestones ? (Array.isArray(paymentPlan.milestones) ? paymentPlan.milestones : []) : [];
+  const milestones = paymentPlan?.milestones
+    ? Array.isArray(paymentPlan.milestones)
+      ? paymentPlan.milestones
+      : []
+    : [];
 
   // CTA Button Handlers
   const handleBookSiteVisit = () => {
     const message = `Hi, I'm interested in booking a site visit for ${property.title}. Please contact me.`;
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919818223938?text=${encodedMessage}`, '_blank');
+    window.open(
+      `https://wa.me/919818223938?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   const handleEnquire = () => {
     const message = `Hi, I'm interested in ${property.title}. Please send me more details.`;
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919818223938?text=${encodedMessage}`, '_blank');
+    window.open(
+      `https://wa.me/919818223938?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   const handleDownloadPriceSheet = () => {
-    // Generate and download a price sheet PDF or redirect to contact form
-    const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`
+    const element = document.createElement("a");
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," +
+        encodeURIComponent(`
       Property: ${property.title}
       Price: ${formatCurrency(property.price)}
       Per Sq Ft: ₹${property.price_per_sqft}
@@ -123,53 +145,59 @@ export const PropertyDetail: React.FC = () => {
       Type: ${formatPropertyType(property.property_type)}
       
       For detailed price sheet, please contact us at info@example.com
-    `));
-    element.setAttribute('download', `${property.title}-price-sheet.txt`);
-    element.style.display = 'none';
+    `)
+    );
+    element.setAttribute("download", `${property.title}-price-sheet.txt`);
+    element.style.display = "none";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
   };
 
   const handleDownloadBrochure = () => {
-    if (property.brochure_url) {
-      window.open(property.brochure_url, '_blank');
-    }
+    if (property.brochure_url) window.open(property.brochure_url, "_blank");
   };
 
   const handleDownloadRERA = () => {
-    if (property.rera_certificate_url) {
-      window.open(property.rera_certificate_url, '_blank');
-    }
+    if (property.rera_certificate_url)
+      window.open(property.rera_certificate_url, "_blank");
   };
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Image Gallery */}
       <div className="relative h-96 bg-muted">
-        <img 
-          src={propertyImages[selectedImage]} 
-          alt={property.title}
+        <img
+          src={propertyImages[hoveredImage ?? selectedImage].url}
+          alt={propertyImages[hoveredImage ?? selectedImage].alt}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        
+
         {/* Image Navigation */}
         <div className="absolute bottom-4 left-4 flex gap-2">
           {propertyImages.map((img, index) => (
             <button
               key={index}
-              onClick={() => setSelectedImage(index)}
+              onClick={() => setSelectedImage(index)} // permanent select
+              onMouseEnter={() => setHoveredImage(index)} // preview on hover
+              onMouseLeave={() => setHoveredImage(null)} // revert back
               className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                selectedImage === index ? 'border-luxury-foreground' : 'border-white/50'
+                selectedImage === index
+                  ? "border-luxury-foreground"
+                  : "border-white/50"
               }`}
             >
-              <img src={img} alt="" className="w-full h-full object-cover" />
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="w-full h-full object-cover"
+              />
             </button>
           ))}
         </div>
 
-        {/* Action Buttons - Fixed z-index to prevent overlay */}
+        {/* Action Buttons */}
         <div className="absolute top-4 right-4 flex gap-2 z-40">
           {property.video_tour_url && (
             <Dialog>
@@ -181,7 +209,9 @@ export const PropertyDetail: React.FC = () => {
               </DialogTrigger>
               <DialogContent className="max-w-4xl z-50">
                 <DialogHeader>
-                  <DialogTitle className="font-playfair">Virtual Property Tour</DialogTitle>
+                  <DialogTitle className="font-playfair">
+                    Virtual Property Tour
+                  </DialogTitle>
                 </DialogHeader>
                 <div className="aspect-video">
                   <iframe
@@ -194,26 +224,50 @@ export const PropertyDetail: React.FC = () => {
               </DialogContent>
             </Dialog>
           )}
+
+          {/* ✅ View All Photos */}
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="bg-black/60 hover:bg-black/80 text-white backdrop-blur-sm shadow-lg">
-                <Camera className="w-4 h-4 mr-2" />
+              <Button
+                variant="secondary"
+                size="sm"
+                className="absolute bottom-4 right-4"
+              >
                 View All Photos
               </Button>
             </DialogTrigger>
+
             <DialogContent className="max-w-6xl z-50">
               <DialogHeader>
-                <DialogTitle className="font-playfair">Property Gallery</DialogTitle>
+                <DialogTitle className="font-playfair">
+                  Property Gallery
+                </DialogTitle>
               </DialogHeader>
+
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
                 {propertyImages.map((img, index) => (
-                  <img 
+                  <button
                     key={index}
-                    src={img} 
-                    alt={`${property.title} - Image ${index + 1}`}
-                    className="w-full h-32 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
-                    onClick={() => setSelectedImage(index)}
-                  />
+                    className="focus:outline-none"
+                    onClick={() => {
+                      setSelectedImage(index);
+                      // Close dialog
+                      const el = document.querySelector(
+                        '[data-state="open"] button'
+                      ) as HTMLElement | null;
+                      el?.click();
+                    }}
+                  >
+                    <img
+                      src={img.url}
+                      alt={img.alt}
+                      className={`w-full h-32 object-cover rounded-lg transition-transform cursor-pointer hover:scale-105 ${
+                        selectedImage === index
+                          ? "ring-2 ring-luxury-foreground"
+                          : ""
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
             </DialogContent>

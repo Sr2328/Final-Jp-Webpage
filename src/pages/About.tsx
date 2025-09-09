@@ -1,4 +1,5 @@
-import { Shield, Award, Users, MapPin, Clock, Target, Eye, Heart, Trophy, Handshake, Building, BarChart3, Star, CheckCircle, UserCheck, Globe, Briefcase, FileText, Phone } from 'lucide-react';
+import { Shield, Award, Users, MapPin, Clock, Target, Eye, Heart, Trophy, Handshake, Building, BarChart3, Star, CheckCircle, UserCheck, Globe, Briefcase, FileText, Phone, Home, Building2 } from 'lucide-react';
+import { motion } from "framer-motion";
 
 const About = () => {
   const milestones = [
@@ -53,32 +54,8 @@ const About = () => {
     },
   ];
 
-  const awards = [
-    {
-      icon: Trophy,
-      title: 'Best Real Estate Consultancy',
-      year: '2023',
-      authority: 'Delhi Real Estate Awards'
-    },
-    {
-      icon: Star,
-      title: 'Customer Excellence Award',
-      year: '2022',
-      authority: 'Property Excellence India'
-    },
-    {
-      icon: Award,
-      title: 'RERA Compliant Partner',
-      year: '2021',
-      authority: 'Real Estate Authority'
-    },
-    {
-      icon: Users,
-      title: '1000+ Satisfied Clients',
-      year: '2024',
-      authority: 'Client Achievement Milestone'
-    }
-  ];
+  
+
 
   const partners = [
     {
@@ -104,24 +81,25 @@ const About = () => {
   ];
 
   const offices = [
-    {
-      city: 'Delhi (HQ)',
-      address: 'Connaught Place, Central Delhi',
-      phone: '+91 98765 43210',
-      email: 'delhi@joginderproperties.com'
-    },
-    {
-      city: 'Mumbai',
-      address: 'Andheri West, Mumbai',
-      phone: '+91 98765 43211',
-      email: 'mumbai@joginderproperties.com'
-    },
-    {
-      city: 'Goa',
-      address: 'Panaji, North Goa',
-      phone: '+91 98765 43212',
-      email: 'goa@joginderproperties.com'
-    }
+   {
+  city: 'Gurugram (Sector 81)',
+  address: 'Sector 81, Gurugram, Haryana',
+  phone: '+91 9818223938',
+  email: 'joginderpropertiesncr@gmail.com'
+},
+{
+  city: 'Gurugram (Sector 70)',
+  address: 'Sector 70, Gurugram, Haryana',
+  phone: '+91 9711197200',
+  email: 'joginderpropertiesncr@gmail.com'
+},
+{
+  city: 'Gurugram (Sector 48)',
+  address: 'Sector 48, Gurugram, Haryana',
+  phone: '+91 9818223938 / +91 9711197200',
+  email: 'joginderpropertiesncr@gmail.com'
+}
+
   ];
 
   const technologies = [
@@ -146,22 +124,110 @@ const About = () => {
       description: 'Property search on-the-go'
     }
   ];
+const bankingPartners = [
+  { name: "Axis Bank", logo: "../../../src/assets/banking-partners/axis bank logo.png" },
+  { name: "HDFC Bank", logo: "../../../src/assets/banking-partners/hdfc banl log.png" },
+  { name: "SBI", logo: "../../../src/assets/banking-partners/sbi logo-22.png" },
+  { name: "Kotak Mahindra", logo: "../../../src/assets/banking-partners/kotak mahindra logo.png" },
+  { name: "IDFC First Bank", logo: "../../../src/assets/banking-partners/idfc-first-bank.webp" },
+  { name: "Yes Bank", logo: "../../../src/assets/banking-partners/yes bank.png" }
+];
+
+
+
 
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-6">
-            About Joginder Properties
+   
+ <section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20 overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        {/* Left Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
+        >
+          <h1 className="font-playfair text-4xl md:text-6xl font-bold leading-tight">
+            About <span className="text-yellow-400">Joginder Properties</span>
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-lg text-white/90 leading-relaxed">
             For over a decade, we've been the trusted bridge between dreams and reality, 
-            helping families across Delhi NCR, Mumbai, and Goa find their perfect homes.
+            helping families across <span className="font-semibold">Delhi NCR</span>, 
+            <span className="font-semibold"> Gurugram,</span>,
+            <span className="font-semibold"> Mumbai</span>, and 
+            <span className="font-semibold"> Goa</span> find their perfect homes.
           </p>
-        </div>
-      </section>
 
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-6 text-center lg:text-left">
+            <div>
+              <div className="flex justify-center lg:justify-start mb-2">
+                <Users className="w-8 h-8 text-yellow-400" />
+              </div>
+              <h3 className="text-2xl font-bold">1000+</h3>
+              <p className="text-sm text-white/80">Happy Families</p>
+            </div>
+            <div>
+              <div className="flex justify-center lg:justify-start mb-2">
+                <Building2 className="w-8 h-8 text-yellow-400" />
+              </div>
+              <h3 className="text-2xl font-bold">500 Cr+</h3>
+              <p className="text-sm text-white/80">Property Value</p>
+            </div>
+            <div>
+              <div className="flex justify-center lg:justify-start mb-2">
+                <Home className="w-8 h-8 text-yellow-400" />
+              </div>
+              <h3 className="text-2xl font-bold">15+ yrs</h3>
+              <p className="text-sm text-white/80">Experience</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex gap-4 pt-4">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="/properties"
+              className="px-6 py-3 rounded-xl bg-yellow-400 text-blue-900 font-semibold shadow-md"
+            >
+              View Properties
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="/contact"
+              className="px-6 py-3 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10"
+            >
+              Book Consultation
+            </motion.a>
+          </div>
+        </motion.div>
+
+        {/* Right Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="../../src/assets/about-hero.png?w=800"
+              alt="Luxury Apartments"
+              width={600}
+              height={400}
+              className="rounded-2xl"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-blue-900 px-6 py-4 rounded-2xl shadow-lg">
+            <h3 className="text-2xl font-bold">#1 Choice</h3>
+            <p className="text-sm font-medium">in Gurgaon NCR Realty</p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
       {/* Story Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -186,7 +252,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
+                src="https://i.postimg.cc/P5DNzFj7/ABOUT.png?w=600&h=400&fit=crop"
                 alt="Our Office"
                 className="rounded-2xl shadow-luxury w-full"
               />
@@ -347,35 +413,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Awards & Recognition Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl font-bold text-foreground mb-4">
-              Awards & Recognition
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Industry recognition for our excellence and client satisfaction
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {awards.map((award, index) => (
-              <div key={index} className="card-premium text-center group hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-luxury rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <award.icon className="w-8 h-8 text-luxury-foreground" />
-                </div>
-                <h3 className="font-playfair font-semibold text-lg text-foreground mb-2">
-                  {award.title}
-                </h3>
-                <p className="text-luxury font-medium mb-1">{award.year}</p>
-                <p className="text-sm text-muted-foreground">{award.authority}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Technology & Innovation Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -405,156 +444,153 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Partner Network Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl font-bold text-foreground mb-4">
-              Our Partner Network
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Trusted partnerships that ensure seamless property transactions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {partners.map((partner, index) => (
-              <div key={index} className="card-premium text-center group hover:shadow-lg transition-all">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <partner.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h3 className="font-semibold text-lg text-foreground mb-2">
-                  {partner.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {partner.type}
-                </p>
-              </div>
-            ))}
-          </div>
+ 
+      {/*  Banking Partner Network Section */}
+    
+   <section className="py-20">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="font-playfair text-4xl font-bold text-foreground mb-4">
+            Our Banking Partner Network
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Partnered with India’s leading banks to make your property
+            transactions faster, safer, and more seamless.
+          </p>
         </div>
-      </section>
 
-      {/* Office Locations Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl font-bold text-foreground mb-4">
-              Our Office Locations
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Visit us at our convenient locations across major cities
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {offices.map((office, index) => (
-              <div key={index} className="card-premium">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mr-4">
-                    <MapPin className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="font-playfair font-semibold text-lg text-foreground">
-                      {office.city}
-                    </h3>
-                  </div>
-                </div>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p className="flex items-center">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    {office.address}
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="w-4 h-4 mr-2" />
-                    {office.phone}
-                  </p>
-                  <p className="flex items-center">
-                    <Globe className="w-4 h-4 mr-2" />
-                    {office.email}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CSR Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-playfair text-4xl font-bold text-foreground mb-6">
-                Community Impact
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                We believe in giving back to the community that has supported our growth. 
-                Through our CSR initiatives, we've contributed to education, housing for the 
-                underprivileged, and environmental conservation.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-luxury mr-3" />
-                  <span className="text-foreground">50+ Families supported with affordable housing</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-luxury mr-3" />
-                  <span className="text-foreground">Educational scholarships for 100+ students</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-luxury mr-3" />
-                  <span className="text-foreground">Green building initiatives in all projects</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
+        <div className="flex flex-wrap justify-center gap-10">
+          {bankingPartners.map((partner, index) => (
+            <motion.div
+              key={index}
+              className="w-28 h-28 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-200 cursor-pointer"
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <img
-                src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop"
-                alt="Community Impact"
-                className="rounded-2xl shadow-luxury w-full"
+                src={partner.logo}
+                alt={partner.name}
+                className="max-h-12 max-w-[70%] object-contain"
               />
-              <div className="absolute -top-6 -right-6 bg-gradient-luxury text-luxury-foreground rounded-2xl p-6 shadow-hover">
-                <div className="text-2xl font-bold">50+</div>
-                <div className="text-sm">CSR Projects</div>
-              </div>
-            </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+      {/* Partners Section */}
+     
+
+<section className="py-20">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Left Content */}
+      <div>
+        <h2 className="font-playfair text-4xl font-bold text-foreground mb-6">
+          Our Trusted Partners
+        </h2>
+        <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+          We proudly collaborate with the most reputed real estate developers 
+          across Gurugram and Delhi NCR. These partnerships allow us to bring 
+          you premium projects, transparent deals, and world-class experiences.
+        </p>
+        <div className="space-y-4">
+          <div className="flex items-center">
+            <CheckCircle className="w-6 h-6 text-luxury mr-3" />
+            <span className="text-foreground">DLF, M3M, Godrej, Sobha</span>
+          </div>
+          <div className="flex items-center">
+            <CheckCircle className="w-6 h-6 text-luxury mr-3" />
+            <span className="text-foreground">Krisumi, Hero Homes, Max Estates</span>
+          </div>
+          <div className="flex items-center">
+            <CheckCircle className="w-6 h-6 text-luxury mr-3" />
+            <span className="text-foreground">Signature, Gokulam & many more</span>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Right Logos with Animation */}
+      <motion.div 
+        className="grid grid-cols-2 sm:grid-cols-3 gap-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.2 } }
+        }}
+      >
+        {[
+          { src: "../../src/assets/images (1).png", alt: "DLF" },
+          { src: "../../src/assets/images (2).png", alt: "M3M" },
+          { src: "../../src/assets/1509703549-2822.jpg", alt: "Godrej" },
+          { src: "../../src/assets/images (4).png", alt: "Sobha" },
+          { src: "../../src/assets/images (3).png", alt: "Krisumi" },
+          { src: "../../src/assets/unnamed.png", alt: "Hero Homes" }
+        ].map((partner, i) => (
+          <motion.div
+            key={i}
+            className="bg-white rounded-xl shadow-md p-6 flex items-center justify-center cursor-pointer"
+            whileHover={{ scale: 1.08, boxShadow: "0px 10px 25px rgba(0,0,0,0.1)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img src={partner.src} alt={partner.alt} className="max-h-12 object-contain" />
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
       {/* RERA Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="card-premium text-center max-w-4xl mx-auto">
-            <div className="w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-10 h-10 text-primary-foreground" />
-            </div>
-            <h2 className="font-playfair text-3xl font-bold text-foreground mb-4">
-              RERA Certified & Compliant
-            </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              We are proud to be RERA (Real Estate Regulatory Authority) certified, ensuring 
-              complete transparency, legal compliance, and protection for all our clients.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-2xl font-bold text-luxury mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Legal Compliance</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-luxury mb-2">0</div>
-                <div className="text-sm text-muted-foreground">Hidden Charges</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-luxury mb-2">24/7</div>
-                <div className="text-sm text-muted-foreground">Support Available</div>
-              </div>
-            </div>
-          </div>
+  <div className="container mx-auto px-4">
+    <div className="card-premium text-center max-w-4xl mx-auto">
+      <div className="w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <Shield className="w-10 h-10 text-primary-foreground" />
+      </div>
+      <h2 className="font-playfair text-3xl font-bold text-foreground mb-4">
+        RERA Certified & Compliant
+      </h2>
+      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+        We are proud to be RERA (Real Estate Regulatory Authority) certified, ensuring 
+        complete transparency, legal compliance, and protection for all our clients.
+      </p>
+
+      {/* RERA Details Card */}
+      <div className="bg-muted rounded-2xl shadow-lg p-6 mb-10 text-left">
+        <h3 className="text-xl font-semibold text-foreground mb-4">RERA Registration Details</h3>
+        <ul className="space-y-2 text-muted-foreground">
+          <li><span className="font-medium text-foreground">Registration No:</span> RC/HRERA/GGM/2524/1130/2024/237</li>
+          <li><span className="font-medium text-foreground">Issued To:</span> Mr. Joginder</li>
+          <li><span className="font-medium text-foreground">Role:</span> Real Estate Agent</li>
+          <li><span className="font-medium text-foreground">Office Address:</span> Unit No. 211, 1st Floor, Block-B1, Elan Corner Walk, Sector-74, Gurugram, Haryana – 122004</li>
+          <li><span className="font-medium text-foreground">Approval Date:</span> 03 April 2024</li>
+          <li><span className="font-medium text-foreground">Issued By:</span> HARERA Gurugram</li>
+        </ul>
+      </div>
+
+      {/* Highlights */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div>
+          <div className="text-2xl font-bold text-luxury mb-2">100%</div>
+          <div className="text-sm text-muted-foreground">Legal Compliance</div>
         </div>
-      </section>
+        <div>
+          <div className="text-2xl font-bold text-luxury mb-2">0</div>
+          <div className="text-sm text-muted-foreground">Hidden Charges</div>
+        </div>
+        <div>
+          <div className="text-2xl font-bold text-luxury mb-2">24/7</div>
+          <div className="text-sm text-muted-foreground">Support Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };

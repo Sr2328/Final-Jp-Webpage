@@ -657,33 +657,7 @@ const Index = () => {
           </div>
 
           <div className="flex justify-center">
-            <FlippableBusinessCard>
-              <Card className="card-premium max-w-sm hover:shadow-lg transition-shadow animate-pulse-gentle cursor-pointer">
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 bg-gradient-luxury rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <User className="w-10 h-10 text-luxury-foreground" />
-                  </div>
-                  <h3 className="font-playfair text-xl font-bold mb-2">Joginder Singh</h3>
-                  <p className="text-primary font-medium mb-1">Real Estate Consultant</p>
-                  <p className="text-muted-foreground text-sm mb-4">15+ Years Experience</p>
-                  
-                  <div className="space-y-2">
-                    <Button className="btn-luxury w-full">
-                      <Eye className="w-4 h-4 mr-2" />
-                      View Digital Card
-                    </Button>
-                    
-                    <Button variant="outline" className="w-full" onClick={(e) => {
-                      e.stopPropagation();
-                      window.open('tel:+919876543210');
-                    }}>
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call Now
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </FlippableBusinessCard>
+            <InteractiveBusinessCard></InteractiveBusinessCard>
           </div>
         </div>
       </section>

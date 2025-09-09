@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Joginder Properties Design System - Premium Real Estate Theme */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-@layer base {
   :root {
     /* Premium Color Palette */
     --background: 0 0% 100%;
@@ -81,7 +78,6 @@
     --border: 215 25% 20%;
     --input: 215 25% 20%;
   }
-}
 
 @layer base {
   * {
