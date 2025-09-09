@@ -1,0 +1,51 @@
+/* 3D Flip Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Animation for smooth flipping */
+.flip-card {
+  transition: transform 0.6s ease-in-out;
+}
+
+.flip-card:hover {
+  transform: rotateY(5deg) rotateX(2deg);
+}
+
+/* Gradient backgrounds for better visual appeal */
+.bg-gradient-subtle {
+  background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 3s ease-in-out infinite;
+}
+
+@keyframes pulse-gentle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Add shadows for luxury effect */
+.shadow-luxury {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+}

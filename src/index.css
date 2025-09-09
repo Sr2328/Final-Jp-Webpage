@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Joginder Properties Design System - Premium Real Estate Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Premium Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+    
+    /* Primary - Deep Navy for Trust & Professionalism */
+    --primary: 215 85% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 215 70% 35%;
+    --primary-dark: 215 90% 20%;
+    
+    /* Luxury Gold Accents */
+    --luxury: 45 95% 55%;
+    --luxury-foreground: 215 25% 15%;
+    --luxury-light: 45 90% 65%;
+    --luxury-muted: 45 30% 85%;
+    
+    /* Sophisticated Grays */
+    --muted: 215 15% 96%;
+    --muted-foreground: 215 15% 45%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+    
+    /* Semantic Colors */
+    --secondary: 215 15% 96%;
+    --secondary-foreground: 215 25% 15%;
+    --accent: 45 30% 85%;
+    --accent-foreground: 215 25% 15%;
+    
+    /* Borders & Inputs */
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 215 85% 25%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+    
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury)), hsl(var(--luxury-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    
+    /* Shadows */
+    --shadow-luxury: 0 20px 40px -12px hsl(var(--primary) / 0.25);
+    --shadow-card: 0 4px 20px hsl(var(--foreground) / 0.08);
+    --shadow-hover: 0 8px 30px hsl(var(--foreground) / 0.12);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 215 28% 8%;
+    --foreground: 215 15% 92%;
+    --primary: 215 70% 65%;
+    --primary-foreground: 215 28% 8%;
+    --card: 215 25% 12%;
+    --card-foreground: 215 15% 92%;
+    --muted: 215 25% 16%;
+    --muted-foreground: 215 15% 65%;
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground px-8 py-4 rounded-xl font-semibold tracking-wide transition-all duration-300 hover:shadow-luxury hover:scale-105 hover:from-primary-dark hover:to-primary;
+  }
+  
+  .btn-luxury {
+    @apply bg-gradient-to-r from-luxury to-luxury-light text-luxury-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:scale-105;
+  }
+  
+  .btn-outline-luxury {
+    @apply border-2 border-luxury bg-transparent px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-luxury hover:text-luxury-foreground hover:shadow-md;
+    color: hsl(var(--luxury));
+  }
+  
+  /* Card Variants */
+  .card-premium {
+    @apply bg-card rounded-2xl p-6 shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-1 border border-border/50;
+  }
+  
+  .card-property {
+    @apply bg-card rounded-xl overflow-hidden shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-2;
+  }
+  
+  /* Text Variants */
+  .text-luxury {
+    color: hsl(var(--luxury));
+    font-weight: 500;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-luxury bg-clip-text text-transparent;
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer components {
+  /* Typography Improvements */
+  h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  p {
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    .font-playfair {
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+  }
+
+  /* Improved mobile spacing */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .card-premium {
+      padding: 1rem;
+    }
+    
+    .btn-hero, .btn-luxury {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Blog content styling */
+  .blog-content h2 {
+    @apply text-2xl font-playfair font-bold text-foreground mt-8 mb-4;
+  }
+  
+  .blog-content h3 {
+    @apply text-xl font-playfair font-semibold text-foreground mt-6 mb-3;
+  }
+  
+  .blog-content h4 {
+    @apply text-lg font-semibold text-foreground mt-4 mb-2;
+  }
+  
+  .blog-content p {
+    @apply text-foreground leading-relaxed mb-4;
+  }
+  
+  .blog-content ul, .blog-content ol {
+    @apply text-foreground ml-6 mb-4 space-y-2;
+  }
+  
+  .blog-content li {
+    @apply leading-relaxed;
+  }
+  
+  .blog-content strong {
+    @apply font-semibold text-foreground;
+  }
+
+  /* 3D Flip Card Styles */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Animation for smooth flipping */
+  .flip-card {
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .flip-card:hover {
+    transform: rotateY(5deg) rotateX(2deg);
+  }
+
+  /* Gradient backgrounds for better visual appeal */
+  .bg-gradient-subtle {
+    background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .animate-pulse-gentle {
+    animation: pulse-gentle 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-gentle {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .card-premium {
+    @apply mx-0;
+  }
+  
+  /* Mobile-specific layouts */
+  .mobile-stack {
+    @apply flex-col space-y-4 space-x-0;
+  }
+  
+  /* Better mobile spacing */
+  .mobile-spacing {
+    @apply py-12;
+  }
+  
+  /* Text scaling for mobile */
+  .mobile-text {
+    @apply text-sm leading-relaxed;
+  }
+  
+  /* Prevent horizontal overflow */
+  .mobile-container {
+    @apply overflow-x-hidden max-w-full;
+  }
+}
+
+/* Contact page specific improvements */
+@media (max-width: 1024px) {
+  .contact-grid {
+    @apply grid-cols-1 gap-8;
+  }
+  
+  .office-cards {
+    @apply grid-cols-1 md:grid-cols-2 gap-6;
+  }
+}
+
+/* Prevent text overflow */
+.text-overflow-ellipsis {
+  @apply truncate;
+}
+
+/* Improved button responsiveness */
+@media (max-width: 640px) {
+  .btn-hero, .btn-luxury, .btn-outline-luxury {
+    @apply text-sm px-4 py-2;
+  }
+}
