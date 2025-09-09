@@ -126,7 +126,7 @@ const Navigation = () => {
                   </div>
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <MapPin className="w-4 h-4" />
-                    <span>Delhi NCR, Mumbai, Goa</span>
+                    <span>Delhi NCR, Gurugram,  Mumbai, Goa</span>
                   </div>
                   <Link to="/contact">
                     <button className="btn-hero w-full py-3 mt-4" onClick={() => setIsOpen(false)}>
