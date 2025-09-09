@@ -76,30 +76,30 @@ const Contact = () => {
   };
 
   const offices = [
-    {
-      city: 'Gurgaon (Head Office)',
-      address: 'Plot No. 123, Sector 14, Gurgaon, Haryana 122001',
-      phone: '+91 98765 43210',
-      email: 'gurgaon@joginderproperties.com',
-      hours: 'Mon-Sat: 9:00 AM - 7:00 PM',
-      featured: true
-    },
-    {
-      city: 'Delhi',
-      address: 'A-45, Connaught Place, New Delhi 110001',
-      phone: '+91 98765 43211',
-      email: 'delhi@joginderproperties.com',
-      hours: 'Mon-Sat: 9:00 AM - 6:00 PM',
-      featured: false
-    },
-    {
-      city: 'Mumbai', 
-      address: 'Office 302, Andheri East, Mumbai 400069',
-      phone: '+91 98765 43212',
-      email: 'mumbai@joginderproperties.com', 
-      hours: 'Mon-Sat: 10:00 AM - 6:00 PM',
-      featured: false
-    }
+  {
+    city: 'Gurgaon (Head Office - Sec 81)',
+    address: 'Sector 81, Gurgaon, Haryana',
+    phone: '+91 97111 97200',
+    email: 'joginderpropertiesncr@gmail.com',
+    hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
+    featured: true
+  },
+  {
+    city: 'Gurgaon (Branch - Sec 70)',
+    address: 'Sector 70, Gurgaon, Haryana',
+    phone: '+91 98182 23938',
+    email: 'joginderpropertiesncr@gmail.com',
+    hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
+    featured: false
+  },
+  {
+    city: 'Gurgaon (Branch - Sec 48)',
+    address: 'Sector 48, Gurgaon, Haryana',
+    phone: '+91 97111 97200',
+    email: 'joginderpropertiesncr@gmail.com',
+    hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
+    featured: false
+  }
   ];
 
   if (isSubmitted) {
@@ -128,17 +128,41 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4">Get In Touch</Badge>
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-6">
-            Contact Our Property Experts
-          </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Ready to find your dream property? Our RERA-certified consultants are here to guide you every step of the way.
-          </p>
-        </div>
-      </section>
+      <section className="bg-gradient-hero text-white py-24 sm:py-32">
+  <div className="container mx-auto px-6 text-center">
+    {/* Badge / Label */}
+    <Badge className="bg-white/20 text-white backdrop-blur-md px-4 py-1 mb-6 inline-block text-sm sm:text-base rounded-full shadow-md">
+      Get In Touch
+    </Badge>
+
+    {/* Heading */}
+    <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight sm:leading-snug">
+      Contact Our Property Experts
+    </h1>
+
+    {/* Subheading / Description */}
+    <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+      Ready to find your dream property? Our RERA-certified consultants are here to guide you every step of the way.
+    </p>
+
+    {/* CTA Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center gap-4">
+      <a
+        href="mailto:joginderpropertiesncr@gmail.com"
+        className="px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+      >
+        Email Us
+      </a>
+      <a
+        href="tel:+919711197200"
+        className="px-6 py-3 border border-white/40 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-300"
+      >
+        Call Now
+      </a>
+    </div>
+  </div>
+</section>
+
 
       <div className="container mx-auto px-4 py-12 mobile-container">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 contact-grid">

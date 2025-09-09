@@ -120,29 +120,46 @@ const Blog = () => {
   const handleBookConsultation = () => {
     const message = 'Hi, I would like to book a real estate consultation. Please contact me.';
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919999999999?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/919818223938?text=${encodedMessage}`, '_blank');
   };
 
   const handleContactExperts = () => {
     const message = 'Hi, I need expert advice on real estate. Please get in touch.';
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919999999999?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/919818223938?text=${encodedMessage}`, '_blank');
   };
 
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-6">
-            Real Estate Blog
-          </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Stay updated with the latest market trends, investment tips, and expert insights 
-            from the real estate industry.
-          </p>
-        </div>
-      </section>
+ <section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-24 sm:py-32 overflow-hidden">
+  <div className="container mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
+    {/* Heading */}
+    <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl font-bold mb-4 relative inline-block">
+      Real Estate Blog
+      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-yellow-400 rounded-full mt-2"></span>
+    </h1>
+
+    {/* Description */}
+    <p className="text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed text-white/90">
+      Stay updated with the latest market trends, investment tips, and expert insights from the real estate industry. Knowledge is key to smart property decisions.
+    </p>
+
+    {/* CTA Button */}
+    <a
+      href="/blogs"
+      className="inline-block px-8 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+    >
+      Explore Articles
+    </a>
+
+    {/* Decorative floating shapes */}
+    <div className="absolute -top-16 -left-16 w-48 h-48 border-2 border-white/20 rounded-full animate-pulse-slow"></div>
+    <div className="absolute -bottom-16 -right-16 w-48 h-48 border-2 border-white/20 rounded-full animate-pulse-slow"></div>
+    <div className="absolute top-1/3 right-10 w-6 h-6 bg-yellow-400 rounded-full opacity-60 animate-bounce-slow"></div>
+    <div className="absolute bottom-1/4 left-12 w-4 h-4 bg-yellow-400 rounded-full opacity-50 animate-bounce-slow"></div>
+  </div>
+</section>
 
       {/* Featured Post */}
       <section className="py-20">

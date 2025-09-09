@@ -37,16 +37,33 @@ export default function Properties() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <section className="bg-gradient-primary py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-playfair font-bold text-primary-foreground mb-6">
-            Premium Properties
-          </h1>
-          <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Discover your dream property from our curated collection across Delhi NCR, Mumbai, and Goa
-          </p>
-        </div>
-      </section>
+     <section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-24 sm:py-32 overflow-hidden text-white">
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
+    {/* Heading */}
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-playfair font-bold mb-4 relative inline-block">
+      Premium Properties
+      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-yellow-400 rounded-full mt-2"></span>
+    </h1>
+
+    {/* Description */}
+    <p className="text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed text-white/90">
+      Discover your dream property from our curated collection across Delhi NCR, Mumbai, and Goa. Experience luxury, comfort, and excellence in every home.
+    </p>
+
+    {/* CTA */}
+    <a
+      href="/properties"
+      className="inline-block px-8 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+    >
+      Explore Properties
+    </a>
+
+    {/* Decorative small elements */}
+    <div className="absolute -top-16 -left-16 w-48 h-48 border-2 border-white/20 rounded-full animate-pulse-slow"></div>
+    <div className="absolute -bottom-16 -right-16 w-48 h-48 border-2 border-white/20 rounded-full animate-pulse-slow"></div>
+  </div>
+</section>
+
 
       {/* Filters Section */}
       <section className="py-8 bg-card border-b">
