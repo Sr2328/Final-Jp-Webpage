@@ -137,6 +137,7 @@ const bankingPartners = [
 
 
   return (
+    <div className="overflow-x-hidden">
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
    
@@ -591,6 +592,7 @@ const bankingPartners = [
   </div>
 </section>
 
+    </div>
     </div>
   );
 };
