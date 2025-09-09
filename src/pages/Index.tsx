@@ -158,136 +158,141 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       {/* Promotional Property Card Overlay */}
-      {showPromoCard && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-500">
-            {/* Close Button */}
-            <button
-              onClick={() => setShowPromoCard(false)}
-              className="absolute top-6 right-6 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
-            >
-              <X className="w-5 h-5 text-gray-600" />
-            </button>
+{showPromoCard && (
+  <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div className="relative w-full max-w-4xl bg-white rounded-3xl overflow-y-auto shadow-2xl animate-in zoom-in-95 duration-500 max-h-[90vh]">
+      
+      {/* Close Button (always visible on scroll) */}
+      <div className="sticky top-0 z-20 flex justify-end p-4 bg-gradient-to-b from-white/80 to-transparent">
+        <button
+          onClick={() => setShowPromoCard(false)}
+          className="w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+        >
+          <X className="w-5 h-5 text-gray-600" />
+        </button>
+      </div>
 
-            <div className="grid md:grid-cols-2">
-              {/* Image Section */}
-              <div className="relative">
-                <img
-                  src={promoProperty.image}
-                  alt={promoProperty.title}
-                  className="w-full h-full object-cover min-h-[400px]"
-                />
-                
-                {/* Floating Badges */}
-                <div className="absolute top-4 left-4 space-y-2">
-                  <Badge className="bg-red-500 text-white px-3 py-1 text-sm font-semibold animate-pulse">
-                    🔥 HOT DEAL
-                  </Badge>
-                  <Badge className="bg-green-500 text-white px-3 py-1 text-sm">
-                    ✅ RERA Approved
-                  </Badge>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Image Section */}
+        <div className="relative min-h-[250px] md:min-h-full">
+          <img
+            src={promoProperty.image}
+            alt={promoProperty.title}
+            className="w-full h-full object-cover"
+          />
+          
+          {/* Floating Badges */}
+          <div className="absolute top-4 left-4 space-y-2">
+            <Badge className="bg-red-500 text-white px-3 py-1 text-sm font-semibold animate-pulse">
+              🔥 HOT DEAL
+            </Badge>
+            <Badge className="bg-green-500 text-white px-3 py-1 text-sm">
+              ✅ RERA Approved
+            </Badge>
+          </div>
 
-                {/* Savings Badge */}
-                <div className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-xl font-bold shadow-lg">
-                  <Gift className="w-4 h-4 inline mr-2" />
-                  Save {promoProperty.savings}
-                </div>
-              </div>
-
-              {/* Content Section */}
-              <div className="p-8 space-y-6">
-                {/* Header */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="outline" className="text-xs border-orange-200 text-orange-600">
-                      LIMITED TIME OFFER
-                    </Badge>
-                    <Badge variant="outline" className="text-xs border-blue-200 text-blue-600">
-                      {promoProperty.launchDate}
-                    </Badge>
-                  </div>
-                  
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                    {promoProperty.title}
-                  </h1>
-                  
-                  <div className="flex items-center text-gray-600 mb-4">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    <span>{promoProperty.location}</span>
-                  </div>
-
-                  {/* Pricing */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-2xl font-bold text-green-600">
-                        {promoProperty.startingPrice}*
-                      </span>
-                      <span className="text-lg text-gray-500 line-through">
-                        {promoProperty.originalPrice}
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600">*Starting price for 3BHK 1600 Sq.ft</p>
-                  </div>
-                </div>
-
-                {/* Features Grid */}
-                <div className="grid grid-cols-2 gap-3">
-                  {promoProperty.features.map((feature, index) => (
-                    <div key={index} className="flex items-center bg-gray-50 rounded-lg p-3">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Highlights */}
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-gray-900 flex items-center">
-                    <Zap className="w-4 h-4 mr-2 text-yellow-500" />
-                    Key Highlights
-                  </h3>
-                  <div className="space-y-1">
-                    {promoProperty.highlights.map((highlight, index) => (
-                      <div key={index} className="flex items-center text-sm text-gray-600">
-                        <ArrowRight className="w-3 h-3 mr-2 text-blue-500" />
-                        {highlight}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="space-y-3 pt-4">
-                  <Link to="/contact" className="block">
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200">
-                      <Calendar className="w-5 h-5 mr-2" />
-                      Book Site Visit
-                    </Button>
-                  </Link>
-                  
-                  <Link to="/properties" className="block">
-                    <Button variant="outline" className="w-full py-3 rounded-xl font-semibold hover:bg-gray-50">
-                      <Eye className="w-5 h-5 mr-2" />
-                      View More Details
-                    </Button>
-                  </Link>
-                </div>
-
-                {/* Contact Info */}
-                <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
-                  <p className="text-sm text-gray-600 mb-2">
-                    🎯 <strong>Exclusive Launch Offer</strong> - Valid till month end!
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    📞 Call now: <strong className="text-blue-600">+91 9818223938</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Savings Badge */}
+          <div className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-xl font-bold shadow-lg">
+            <Gift className="w-4 h-4 inline mr-2" />
+            Save {promoProperty.savings}
           </div>
         </div>
-      )}
+
+        {/* Content Section */}
+        <div className="p-6 md:p-8 space-y-6">
+          {/* Header */}
+          <div>
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <Badge variant="outline" className="text-xs border-orange-200 text-orange-600">
+                LIMITED TIME OFFER
+              </Badge>
+              <Badge variant="outline" className="text-xs border-blue-200 text-blue-600">
+                {promoProperty.launchDate}
+              </Badge>
+            </div>
+            
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              {promoProperty.title}
+            </h1>
+            
+            <div className="flex items-center text-gray-600 mb-4 text-sm md:text-base">
+              <MapPin className="w-4 h-4 mr-2" />
+              <span>{promoProperty.location}</span>
+            </div>
+
+            {/* Pricing */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-xl md:text-2xl font-bold text-green-600">
+                  {promoProperty.startingPrice}*
+                </span>
+                <span className="text-base md:text-lg text-gray-500 line-through">
+                  {promoProperty.originalPrice}
+                </span>
+              </div>
+              <p className="text-xs md:text-sm text-gray-600">
+                *Starting price for 3BHK 1600 Sq.ft
+              </p>
+            </div>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {promoProperty.features.map((feature, index) => (
+              <div key={index} className="flex items-center bg-gray-50 rounded-lg p-3">
+                <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                <span className="text-xs md:text-sm font-medium text-gray-700">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Highlights */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-gray-900 flex items-center">
+              <Zap className="w-4 h-4 mr-2 text-yellow-500" />
+              Key Highlights
+            </h3>
+            <div className="space-y-1">
+              {promoProperty.highlights.map((highlight, index) => (
+                <div key={index} className="flex items-center text-xs md:text-sm text-gray-600">
+                  <ArrowRight className="w-3 h-3 mr-2 text-blue-500" />
+                  {highlight}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="space-y-3 pt-4">
+            <Link to="/contact" className="block">
+              <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 rounded-xl font-semibold text-sm md:text-lg shadow-lg hover:shadow-xl transition-all duration-200">
+                <Calendar className="w-5 h-5 mr-2" />
+                Book Site Visit
+              </Button>
+            </Link>
+            
+            <Link to="/properties" className="block">
+              <Button variant="outline" className="w-full py-3 rounded-xl font-semibold text-sm md:text-lg hover:bg-gray-50">
+                <Eye className="w-5 h-5 mr-2" />
+                View More Details
+              </Button>
+            </Link>
+          </div>
+
+          {/* Contact Info */}
+          <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+            <p className="text-xs md:text-sm text-gray-600 mb-2">
+              🎯 <strong>Exclusive Launch Offer</strong> - Valid till month end!
+            </p>
+            <p className="text-xs md:text-sm text-gray-600">
+              📞 Call now: <strong className="text-blue-600">+91 9818223938</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
 
       {/* Hero Section with Featured Properties */}
       <Hero />
