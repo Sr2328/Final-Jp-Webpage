@@ -1,5 +1,17 @@
 import { Shield, Award, Users, MapPin, Clock, Target, Eye, Heart, Trophy, Handshake, Building, BarChart3, Star, CheckCircle, UserCheck, Globe, Briefcase, FileText, Phone, Home, Building2 } from 'lucide-react';
 import { motion } from "framer-motion";
+import imagesbi from '../assets/sbi logo-22.png'
+import  imagekotak from '../assets/kotak mahindra logo.png'
+import  imagehdfc from '../assets/hdfc banl log.png'
+import  imageaxis from '../assets/axis bank logo.png'
+import  imageidfc from '../assets/idfc-first-bank.webp'
+import  imageyesbank from '../assets/yes bank.png'
+import  importm3m from '../assets/images (2).png'
+import  importdlf from '../assets/images (1).png'
+import  importgodrej from '../assets/1509703549-2822.jpg'
+import  importsobha from '../assets/images (4).png'
+import  importkrisumi from '../assets/images (3).png'
+import  importherohomes from '../assets/unnamed.png'
 
 const About = () => {
   const milestones = [
@@ -125,12 +137,12 @@ const About = () => {
     }
   ];
 const bankingPartners = [
-  { name: "Axis Bank", logo: "../../../src/assets/banking-partners/axis bank logo.png" },
-  { name: "HDFC Bank", logo: "../../../src/assets/banking-partners/hdfc banl log.png" },
-  { name: "SBI", logo: "../../../src/assets/banking-partners/sbi logo-22.png" },
-  { name: "Kotak Mahindra", logo: "../../../src/assets/banking-partners/kotak mahindra logo.png" },
-  { name: "IDFC First Bank", logo: "../../../src/assets/banking-partners/idfc-first-bank.webp" },
-  { name: "Yes Bank", logo: "../../../src/assets/banking-partners/yes bank.png" }
+  { name: "Axis Bank", logo: imageaxis },
+  { name: "HDFC Bank", logo: imagehdfc },
+  { name: "SBI", logo: imagesbi },
+  { name: "Kotak Mahindra", logo: imagekotak },
+  { name: "IDFC First Bank", logo: imageidfc },
+  { name: "Yes Bank", logo: imageyesbank },
 ];
 
 
