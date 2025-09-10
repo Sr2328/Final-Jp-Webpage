@@ -14,6 +14,9 @@ import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { InteractiveBusinessCard } from '@/components/InteractiveBusinessCard';
 import { Link } from 'react-router-dom';
 import  image26 from '../assets/26.jpg'
+import imageGokulam from '../assets/Gokulam The Sanctuary luxury Floor.pdf-image-013.jpg'
+import imgage17 from '../assets/17.jpg'
+
 
 const Index = () => {
   const { properties, getFeaturedProperties } = useProperties();
@@ -486,7 +489,7 @@ const Index = () => {
                 type: "Luxury Apartments",
                 launchDate: "Q2 2026",
                 startingPrice: "₹3.10 Cr",
-                image: "../../src/assets/17.jpg"
+                image: imgage17
               },
               {
                 title: "Sobha Aranya",
@@ -502,7 +505,7 @@ const Index = () => {
                 type: "3 BHK luxury Apartments",
                 launchDate: "Q4 2026",
                 startingPrice: "₹1.34 Cr",
-                image: "../../src/assets/Gokulam The Sanctuary luxury Floor.pdf-image-013.jpg"
+                image: imageGokulam
               }
             ].map((project, index) => (
               <div key={index} className="card-premium group">
