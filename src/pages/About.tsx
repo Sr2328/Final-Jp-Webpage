@@ -12,6 +12,7 @@ import  imagegodrej from '../assets/1509703549-2822.jpg'
 import  imagesobha from '../assets/images (4).png'
 import  imagekrisumi from '../assets/images (3).png'
 import  imageherohomes from '../assets/unnamed.png'
+import imageabouthero from '../assets/about-hero.png'
 
 const About = () => {
   const milestones = [
@@ -227,7 +228,7 @@ const bankingPartners = [
         >
           <div className="rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="../../src/assets/about-hero.png?w=800"
+              src= {imageabouthero}
               alt="Luxury Apartments"
               width={600}
               height={400}
