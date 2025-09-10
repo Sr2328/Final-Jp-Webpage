@@ -485,7 +485,7 @@ const Index = () => {
                 type: "Luxury Apartments",
                 launchDate: "Q2 2026",
                 startingPrice: "₹3.10 Cr",
-                image: "../../public/17.jpg"
+                image: "../../src/assets/17.jpg"
               },
               {
                 title: "Sobha Aranya",
@@ -493,7 +493,7 @@ const Index = () => {
                 type: "Premium Villas",
                 launchDate: "Q4 2026",
                 startingPrice: "₹7.5 Cr",
-                image: "../../public/26.jpg"
+                image: "../../src/assets/26.jpg"
               },
               {
                 title: "Gokulam The Sanctuary",
@@ -501,7 +501,7 @@ const Index = () => {
                 type: "3 BHK luxury Apartments",
                 launchDate: "Q4 2026",
                 startingPrice: "₹1.34 Cr",
-                image: "../../public/Gokulam The Sanctuary luxury Floor.pdf-image-013.jpg"
+                image: "../../src/assets/Gokulam The Sanctuary luxury Floor.pdf-image-013.jpg"
               }
             ].map((project, index) => (
               <div key={index} className="card-premium group">

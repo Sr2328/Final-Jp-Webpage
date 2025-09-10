@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import { Link } from 'react-router-dom';
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -121,7 +121,12 @@ export const Footer: React.FC = () => {
             © {currentYear} Joginder Properties. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-background/60">
-            <a href="#" className="hover:text-luxury-foreground transition-colors">Privacy Policy</a>
+              <Link
+          to="/privacy-policy"
+          className="text-sm text-gray-300 hover:text-white underline"
+        >
+          Privacy Policy
+        </Link>
             <a href="#" className="hover:text-luxury-foreground transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-luxury-foreground transition-colors">Disclaimer</a>
           </div>

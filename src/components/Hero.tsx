@@ -3,9 +3,8 @@ import { usePropertyImages } from '@/hooks/useProeprtiesImages';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Bed, Bath, Square, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import heroImage from '@/assets/hero-image.jpg';
-
 const PropertyImage = ({ property }: { property: any }) => {
   const { images } = usePropertyImages(property.id);
   
