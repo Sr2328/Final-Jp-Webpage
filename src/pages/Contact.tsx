@@ -26,53 +26,73 @@ import {
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    propertyType: '',
-    location: '',
-    budget: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    propertyType: "",
+    location: "",
+    budget: "",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
-      const { error } = await supabase
-        .from('contact_inquiries')
-        .insert([{
+      const { error } = await supabase.from("contact_inquiries").insert([
+        {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          inquiry_type: formData.propertyType || 'general',
-          message: `Budget: ${formData.budget || 'Not specified'}\nLocation: ${formData.location || 'Not specified'}\nProperty Type: ${formData.propertyType || 'Not specified'}\n\nMessage: ${formData.message}`,
-          source: 'website'
-        }]);
+          inquiry_type: formData.propertyType || "general",
+          message: `Budget: ${formData.budget || "Not specified"}\nLocation: ${
+            formData.location || "Not specified"
+          }\nProperty Type: ${
+            formData.propertyType || "Not specified"
+          }\n\nMessage: ${formData.message}`,
+          source: "website",
+        },
+      ]);
 
       if (error) throw error;
-      
+
+      // ✅ Fire Google Ads Conversion
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "conversion", {
+          send_to: "AW-17541032556/qJrUCMiFgpgbEOzUm6xR", // <-- Replace with your Conversion ID + Label
+          value: 1.0,
+          currency: "INR",
+        });
+      }
+
+      // ✅ Show Thank You popup
       setIsSubmitted(true);
+
+      // ✅ Reset form
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        propertyType: '',
-        location: '',
-        budget: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        propertyType: "",
+        location: "",
+        budget: "",
+        message: "",
       });
-      
+
+      // Auto-hide after 5s (optional)
       setTimeout(() => setIsSubmitted(false), 5000);
+
+      // 👉 If you want redirect instead of popup:
+      // window.location.href = "/thank-you";
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error submitting your inquiry. Please try again or call us directly.');
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting your inquiry. Please try again or call us directly.");
     }
   };
 
   const handleChange = (name: string, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const offices = [
