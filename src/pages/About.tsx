@@ -111,19 +111,19 @@ const About = () => {
    {
   city: 'Gurugram (Sector 81)',
   address: 'Sector 81, Gurugram, Haryana',
-  phone: '+91 9818223938',
+  phone: '+91 9205413041',
   email: 'joginderpropertiesncr@gmail.com'
 },
 {
   city: 'Gurugram (Sector 70)',
   address: 'Sector 70, Gurugram, Haryana',
-  phone: '+91 9711197200',
+  phone: '+91 9205413041',
   email: 'joginderpropertiesncr@gmail.com'
 },
 {
   city: 'Gurugram (Sector 48)',
   address: 'Sector 48, Gurugram, Haryana',
-  phone: '+91 9818223938 / +91 9711197200',
+  phone: '+91 9205413041 / +91 9711197200',
   email: 'joginderpropertiesncr@gmail.com'
 }
 

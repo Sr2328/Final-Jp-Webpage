@@ -119,7 +119,7 @@ const propertyImages = Array.isArray(images) && images.length > 0
   const handleBookSiteVisit = () => {
     const message = `Hi, I'm interested in booking a site visit for ${property.title}. Please contact me.`;
     window.open(
-      `https://wa.me/919818223938?text=${encodeURIComponent(message)}`,
+      `https://wa.me/919205413041?text=${encodeURIComponent(message)}`,
       "_blank"
     );
   };
@@ -127,7 +127,7 @@ const propertyImages = Array.isArray(images) && images.length > 0
   const handleEnquire = () => {
     const message = `Hi, I'm interested in ${property.title}. Please send me more details.`;
     window.open(
-      `https://wa.me/919818223938?text=${encodeURIComponent(message)}`,
+      `https://wa.me/919205413041?text=${encodeURIComponent(message)}`,
       "_blank"
     );
   };
@@ -144,7 +144,7 @@ const propertyImages = Array.isArray(images) && images.length > 0
       Location: ${formatLocation(property.location)}
       Type: ${formatPropertyType(property.property_type)}
       
-      For detailed price sheet, please contact us at joginderpropertiesncr@gmail.com Or call +91 9818223938
+      For detailed price sheet, please contact us at proeprtiessatija@gmail.com Or call +91 9205413041
     `)
     );
     element.setAttribute("download", `${property.title}-price-sheet.txt`);

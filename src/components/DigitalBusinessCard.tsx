@@ -29,7 +29,7 @@ export const DigitalBusinessCard: React.FC<BusinessCardProps> = ({ children }) =
     title: "Founder & CEO",
     company: "Joginder Properties",
     tagline: "Your Trusted Property Investment Partner",
-    phone: "+91 9818223938",
+    phone: "+91 9205413041",
     email: "joginderpropertiesncr@gmail.com",
     website: "www.joginderproperties.com",
     address: "Sector 81, Gurgaon, Haryana, India",
@@ -47,7 +47,7 @@ export const DigitalBusinessCard: React.FC<BusinessCardProps> = ({ children }) =
 
   const handleWhatsApp = () => {
     const message = "Hi! I'm interested in learning more about your property services.";
-    window.open(`https://wa.me/9818223938?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/9205413041?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleDownloadVCard = () => {

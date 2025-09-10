@@ -286,7 +286,7 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
               )}`;
               const encodedMessage = encodeURIComponent(message);
               window.open(
-                `https://wa.me/919818223938?text=${encodedMessage}`,
+                `https://wa.me/919205413041?text=${encodedMessage}`,
                 "_blank"
               );
             }}

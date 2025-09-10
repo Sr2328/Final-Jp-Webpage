@@ -79,7 +79,7 @@ const Contact = () => {
   {
     city: 'Gurgaon (Head Office - Sec 81)',
     address: 'Sector 81, Gurgaon, Haryana',
-    phone: '+91 97111 97200',
+    phone: '+919205413041',
     email: 'joginderpropertiesncr@gmail.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: true
@@ -87,7 +87,7 @@ const Contact = () => {
   {
     city: 'Gurgaon (Branch - Sec 70)',
     address: 'Sector 70, Gurgaon, Haryana',
-    phone: '+91 98182 23938',
+    phone: '+91 9205413041',
     email: 'joginderpropertiesncr@gmail.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: false
@@ -95,7 +95,7 @@ const Contact = () => {
   {
     city: 'Gurgaon (Branch - Sec 48)',
     address: 'Sector 48, Gurgaon, Haryana',
-    phone: '+91 97111 97200',
+    phone: '+919205413041',
     email: 'joginderpropertiesncr@gmail.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: false
@@ -154,7 +154,7 @@ const Contact = () => {
         Email Us
       </a>
       <a
-        href="tel:+919711197200"
+        href="tel:+919205413041"
         className="px-6 py-3 border border-white/40 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-300"
       >
         Call Now
@@ -306,7 +306,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold">Call Now</p>
-                      <p className="text-sm text-muted-foreground">+91 9818223938</p>
+                      <p className="text-sm text-muted-foreground">+91 9205413041</p>
                     </div>
                   </div>
 
@@ -326,7 +326,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold">Email Us</p>
-                      <p className="text-sm text-muted-foreground">joginderpropertiesncr@gmail.com</p>
+                      <p className="text-sm text-muted-foreground">propertiessatija@gmail.com</p>
                     </div>
                   </div>
 
@@ -342,14 +342,14 @@ const Contact = () => {
                 </div>
 
                 <div className="pt-4 border-t space-y-2">
-                  <Button className="btn-luxury w-full" onClick={() => window.open('tel:+919818223938')}>
+                  <Button className="btn-luxury w-full" onClick={() => window.open('tel:+919205413041')}>
                     <Phone className="w-4 h-4 mr-2" />
                     Call Now
                   </Button>
                   <Button 
                     variant="outline" 
                     className="w-full"
-                    onClick={() => window.open('https://wa.me/919818223938?text=Hi! I want to discuss property requirements.')}
+                    onClick={() => window.open('https://wa.me/919205413041?text=Hi! I want to discuss property requirements.')}
                   >
                     <MessageSquare className="w-4 h-4 mr-2" />
                     WhatsApp

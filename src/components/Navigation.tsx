@@ -79,7 +79,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Phone className="w-4 h-4" />
-              <span>+91 9818223938</span>
+              <span>+91 9205413041</span>
             </div>
             <Link to="/contact">
               <button className="btn-hero text-sm px-6 py-2.5">
@@ -124,7 +124,7 @@ const Navigation = () => {
                 <div className="pt-4 border-t border-gray-200 space-y-3">
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     <Phone className="w-4 h-4" />
-                    <span>+91 9818223938</span>
+                    <span>+91 9205413041</span>
                   </div>
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     <MapPin className="w-4 h-4" />

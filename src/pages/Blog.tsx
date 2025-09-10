@@ -120,13 +120,13 @@ const Blog = () => {
   const handleBookConsultation = () => {
     const message = 'Hi, I would like to book a real estate consultation. Please contact me.';
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919818223938?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/919205413041?text=${encodedMessage}`, '_blank');
   };
 
   const handleContactExperts = () => {
     const message = 'Hi, I need expert advice on real estate. Please get in touch.';
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919818223938?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/919205413041?text=${encodedMessage}`, '_blank');
   };
 
   return (

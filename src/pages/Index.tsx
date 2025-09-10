@@ -293,7 +293,7 @@ const Index = () => {
               🎯 <strong>Exclusive Launch Offer</strong> - Valid till month end!
             </p>
             <p className="text-xs md:text-sm text-gray-600">
-              📞 Call now: <strong className="text-blue-600">+91 9818223938</strong>
+              📞 Call now: <strong className="text-blue-600">+91 9205413041 </strong>
             </p>
           </div>
         </div>
