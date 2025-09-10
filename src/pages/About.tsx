@@ -13,6 +13,11 @@ import  imagesobha from '../assets/images (4).png'
 import  imagekrisumi from '../assets/images (3).png'
 import  imageherohomes from '../assets/unnamed.png'
 import imageabouthero from '../assets/about-hero.png'
+import imagejpself from '../assets/jp-logo.png'
+import imagevidushi from '../assets/vidushiprofile.jpg'
+import imagejpprofile from '../assets/jpprofile.png'
+import imagesachin from '../assets/sachinprofile.jpg'
+import imagedhiraj from '../assets/dhirajnew.jpg'
 
 const About = () => {
   const milestones = [
@@ -25,27 +30,36 @@ const About = () => {
   ];
 
   const team = [
-    {
-      name: 'Joginder Yadav',
-      role: 'Founder & CEO',
-      experience: '15+ Years',
-      image: '../../public/Joginder-Profile.jpg?w=300&h=300&fit=crop&crop=face',
-      description: 'Visionary leader with extensive experience in Delhi NCR real estate market.'
-    },
-    {
-      name: 'Sachin Yadav',
-      role: 'Maerketing Head',
-      experience: '3+ Years',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face',
-      description: 'Expert in luxury properties and client relationship management.'
-    },
-    {
-      name: 'Vishal Mohanata',
-      role: 'Legal Advisor',
-      experience: '10+ Years',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
-      description: 'Ensures all transactions are legally compliant and transparent.'
-    },
+   {
+  name: 'Joginder Yadav',
+  role: 'Founder & CEO',
+  experience: '15+ Years',
+  image: imagejpprofile,
+  description: 'Visionary leader with extensive experience in Delhi NCR real estate market.'
+},
+
+{
+  name: 'Dhiraj Satija',
+  role: 'Legal Advisor',
+  experience: '10+ Years',
+  image: imagedhiraj,
+  description: 'Ensures all transactions are legally compliant and transparent.'
+},
+{
+  name: 'Vidushi Ruthra',
+  role: 'Astrologer & Vastu Consultant',
+  experience: '7+ Years',
+  image: imagevidushi,
+  description: 'Guides clients with vastu shastra and astrology to ensure positive energy in every property.'
+},
+{
+  name: 'Sachinn Yadav',
+  role: 'Digital Marketing & Web Development Head',
+  experience: '5+ Years',
+  image: imagesachin,
+  description: 'Leads digital campaigns, web strategies, and modern tech integration to maximize property reach.'
+}
+
    
   ];
 
@@ -399,7 +413,7 @@ const bankingPartners = [
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div key={index} className="card-premium text-center group">
                 <div className="relative mb-6">

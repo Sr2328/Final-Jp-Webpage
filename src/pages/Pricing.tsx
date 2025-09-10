@@ -18,99 +18,89 @@ const Pricing = () => {
   const bhkSizes = ['all', '1 BHK', '2 BHK', '3 BHK', '4+ BHK'];
 
   const marketTrends = [
-    {
-      location: 'Gurgaon',
-      averagePrice: '₹8,500/sq.ft',
-      growth: '+12%',
-      trend: 'up',
-      properties: 45
-    },
-    {
-      location: 'Delhi',
-      averagePrice: '₹15,200/sq.ft',
-      growth: '+8%',
-      trend: 'up',
-      properties: 32
-    },
-    {
-      location: 'Mumbai',
-      averagePrice: '₹25,800/sq.ft',
-      growth: '+15%',
-      trend: 'up',
-      properties: 28
-    },
-    {
-      location: 'Noida',
-      averagePrice: '₹4,800/sq.ft',
-      growth: '+18%',
-      trend: 'up',
-      properties: 52
-    },
-    {
-      location: 'Goa',
-      averagePrice: '₹12,000/sq.ft',
-      growth: '+10%',
-      trend: 'up',
-      properties: 15
-    },
-    {
-      location: 'Faridabad',
-      averagePrice: '₹3,200/sq.ft',
-      growth: '+6%',
-      trend: 'up',
-      properties: 38
-    }
+    
+   {
+  location: 'Gurugram',
+  averagePrice: '₹15,400/sq.ft',
+  growth: '+35%',
+  trend: 'up',
+  properties: 21
+},
+{
+  location: 'Delhi',
+  averagePrice: '₹43,800/sq.ft',
+  growth: '+10%',
+  trend: 'up',
+  properties: 3
+},
+{
+  location: 'Mumbai',
+  averagePrice: '₹29,700/sq.ft',
+  growth: '+12%',
+  trend: 'up',
+  properties: 2
+},
+{
+  location: 'Noida',
+  averagePrice: '₹17,000/sq.ft',
+  growth: '+20%',
+  trend: 'up',
+  properties: 3
+},
+{
+  location: 'Goa',
+  averagePrice: '₹22,410/sq.ft',
+  growth: '+14%',
+  trend: 'up',
+  properties: 3
+},
+{
+  location: 'Faridabad',
+  averagePrice: '₹27,888/sq.ft',
+  growth: '+8%',
+  trend: 'up',
+  properties: 3
+}
+
   ];
 
   const priceRanges = [
-    {
-      range: 'Under ₹50 Lakh',
-      properties: sampleProperties.filter(p => 
-        parseInt(p.price.replace(/[^\d]/g, '')) < 5000000
-      ).length,
-      locations: ['Noida', 'Faridabad', 'Ghaziabad'],
-      avgSize: '800-1200 sq.ft',
-      description: 'Perfect for first-time buyers and young families'
-    },
-    {
-      range: '₹50L - ₹1 Crore',
-      properties: sampleProperties.filter(p => {
-        const price = parseInt(p.price.replace(/[^\d]/g, ''));
-        return price >= 5000000 && price < 10000000;
-      }).length,
-      locations: ['Gurgaon', 'Noida', 'Delhi'],
-      avgSize: '1000-1500 sq.ft',
-      description: 'Well-located properties with modern amenities'
-    },
-    {
-      range: '₹1 - ₹2 Crore',
-      properties: sampleProperties.filter(p => {
-        const price = parseInt(p.price.replace(/[^\d]/g, ''));
-        return price >= 10000000 && price < 20000000;
-      }).length,
-      locations: ['Delhi', 'Gurgaon', 'Mumbai'],
-      avgSize: '1200-1800 sq.ft',
-      description: 'Premium apartments and independent houses'
-    },
-    {
-      range: '₹2 - ₹5 Crore',
-      properties: sampleProperties.filter(p => {
-        const price = parseInt(p.price.replace(/[^\d]/g, ''));
-        return price >= 20000000 && price < 50000000;
-      }).length,
-      locations: ['Mumbai', 'Delhi', 'Goa'],
-      avgSize: '1500-2500 sq.ft',
-      description: 'Luxury properties in prime locations'
-    },
-    {
-      range: 'Above ₹5 Crore',
-      properties: sampleProperties.filter(p => 
-        parseInt(p.price.replace(/[^\d]/g, '')) >= 50000000
-      ).length,
-      locations: ['Mumbai', 'Goa', 'Delhi'],
-      avgSize: '2000+ sq.ft',
-      description: 'Ultra-luxury villas and penthouses'
-    }
+   {
+  range: 'Under ₹50 Lakh',
+  properties: 2, // you said only 2 in this range
+  locations: ['Gurgaon', 'Noida', 'Faridabad'],
+  avgSize: '800-1200 sq.ft',
+  description: 'Perfect for first-time buyers and young families'
+},
+{
+  range: '₹50L - ₹1 Crore',
+  properties: 3, // you said only 3 in this range
+  locations: ['Gurgaon', 'Noida', 'Delhi'],
+  avgSize: '1000-1500 sq.ft',
+  description: 'Well-located properties with modern amenities'
+},
+{
+  range: '₹1 - ₹2 Crore',
+  properties: 5, // specifically 5 in Gurgaon
+  locations: ['Delhi', 'Gurgaon', 'Mumbai'],
+  avgSize: '1200-1800 sq.ft',
+  description: 'Premium apartments and independent houses'
+},
+{
+  range: '₹2 - ₹5 Crore',
+  properties: 10, // you mentioned 10 in this range
+  locations: ['Mumbai', 'Delhi', 'Gurgaon'],
+  avgSize: '1500-2500 sq.ft',
+  description: 'Luxury properties in prime locations'
+},
+{
+  range: 'Above ₹5 Crore',
+  properties: 5, // 5+ properties, kept as 5 (can mark as "5+" if needed)
+  locations: ['Mumbai', 'Goa', 'Gurgaon'],
+  avgSize: '2000+ sq.ft',
+  description: 'Ultra-luxury villas and penthouses'
+}
+
   ];
 
   const filteredProperties = sampleProperties.filter(property => {

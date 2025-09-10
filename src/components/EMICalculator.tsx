@@ -1,58 +1,115 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Slider } from '@/components/ui/slider';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis } from 'recharts';
-import { useEMIPreset, calculateEMI, EMICalculation } from '@/hooks/useEMICalculator';
-import { Calculator, PieChart as PieChartIcon, TrendingUp } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { Calculator, PieChart as PieChartIcon, TrendingUp } from "lucide-react";
 
+/* -------------------- EMI Calculation Logic -------------------- */
+interface EMIBreakupMonth {
+  month: number;
+  principal: number;
+  interest: number;
+}
+
+export interface EMICalculation {
+  monthlyEMI: number;
+  totalAmount: number;
+  totalInterest: number;
+  principalAmount: number;
+  breakup: EMIBreakupMonth[];
+}
+
+function calculateEMI(
+  loanAmount: number,
+  annualRate: number,
+  tenureYears: number
+): EMICalculation {
+  const monthlyRate = annualRate / 12 / 100;
+  const months = tenureYears * 12;
+
+  // EMI formula
+  const emi =
+    (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months)) /
+    (Math.pow(1 + monthlyRate, months) - 1);
+
+  let balance = loanAmount;
+  const breakup: EMIBreakupMonth[] = [];
+  let totalInterest = 0;
+
+  for (let m = 1; m <= months; m++) {
+    const interest = balance * monthlyRate;
+    const principal = emi - interest;
+    balance -= principal;
+    totalInterest += interest;
+
+    breakup.push({
+      month: m,
+      principal,
+      interest,
+    });
+  }
+
+  return {
+    monthlyEMI: Math.round(emi),
+    totalAmount: Math.round(emi * months),
+    totalInterest: Math.round(totalInterest),
+    principalAmount: loanAmount,
+    breakup,
+  };
+}
+
+/* -------------------- EMI Calculator Component -------------------- */
 interface EMICalculatorProps {
-  propertyId?: string;
   defaultLoanAmount?: number;
 }
 
-export const EMICalculator: React.FC<EMICalculatorProps> = ({ 
-  propertyId, 
-  defaultLoanAmount = 5000000 
+export const EMICalculator: React.FC<EMICalculatorProps> = ({
+  defaultLoanAmount = 5000000,
 }) => {
-  const { preset, loading } = useEMIPreset(propertyId);
   const [loanAmount, setLoanAmount] = useState(defaultLoanAmount);
   const [interestRate, setInterestRate] = useState(8.5);
   const [tenure, setTenure] = useState(20);
   const [calculation, setCalculation] = useState<EMICalculation | null>(null);
 
   useEffect(() => {
-    if (preset) {
-      setLoanAmount(Math.min(defaultLoanAmount, preset.loan_amount_max));
-      setInterestRate(preset.default_interest_rate);
-      setTenure(preset.default_tenure_years);
-    }
-  }, [preset, defaultLoanAmount]);
-
-  useEffect(() => {
     const result = calculateEMI(loanAmount, interestRate, tenure);
     setCalculation(result);
   }, [loanAmount, interestRate, tenure]);
 
-  if (loading) {
-    return (
-      <Card className="animate-pulse">
-        <div className="h-96 bg-muted rounded-lg"></div>
-      </Card>
-    );
+  if (!calculation) {
+    return null;
   }
 
-  const pieData = calculation ? [
-    { name: 'Principal', value: calculation.principalAmount, color: 'hsl(var(--primary))' },
-    { name: 'Interest', value: calculation.totalInterest, color: 'hsl(var(--secondary))' }
-  ] : [];
+  const pieData = [
+    {
+      name: "Principal",
+      value: calculation.principalAmount,
+      color: "hsl(var(--primary))",
+    },
+    {
+      name: "Interest",
+      value: calculation.totalInterest,
+      color: "hsl(var(--secondary))",
+    },
+  ];
 
-  const yearlyBreakup = calculation?.breakup.reduce((acc, month) => {
+  const yearlyBreakup = calculation.breakup.reduce((acc, month) => {
     const year = Math.ceil(month.month / 12);
-    const existing = acc.find(item => item.year === year);
-    
+    const existing = acc.find((item) => item.year === year);
+
     if (existing) {
       existing.principal += month.principal;
       existing.interest += month.interest;
@@ -60,11 +117,11 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
       acc.push({
         year,
         principal: month.principal,
-        interest: month.interest
+        interest: month.interest,
       });
     }
     return acc;
-  }, [] as any[]) || [];
+  }, [] as { year: number; principal: number; interest: number }[]);
 
   return (
     <Card className="card-premium">
@@ -88,7 +145,7 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
                 className="text-right"
               />
               <div className="text-sm text-muted-foreground">
-                ₹{loanAmount.toLocaleString('en-IN')}
+                ₹{loanAmount.toLocaleString("en-IN")}
               </div>
             </div>
 
@@ -97,13 +154,13 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
               <Slider
                 value={[interestRate]}
                 onValueChange={(value) => setInterestRate(value[0])}
-                max={preset?.interest_rate_max || 15}
-                min={preset?.interest_rate_min || 6}
+                max={15}
+                min={6}
                 step={0.25}
                 className="slider-primary"
               />
               <div className="text-sm text-muted-foreground">
-                Range: {preset?.interest_rate_min || 6}% - {preset?.interest_rate_max || 15}%
+                Range: 6% - 15%
               </div>
             </div>
 
@@ -112,13 +169,13 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
               <Slider
                 value={[tenure]}
                 onValueChange={(value) => setTenure(value[0])}
-                max={preset?.tenure_years_max || 30}
-                min={preset?.tenure_years_min || 5}
+                max={30}
+                min={5}
                 step={1}
                 className="slider-primary"
               />
               <div className="text-sm text-muted-foreground">
-                Range: {preset?.tenure_years_min || 5} - {preset?.tenure_years_max || 30} years
+                Range: 5 - 30 years
               </div>
             </div>
           </div>
@@ -127,7 +184,7 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
           <div className="space-y-4">
             <div className="text-center p-4 bg-gradient-primary rounded-lg text-primary-foreground">
               <div className="text-2xl font-bold">
-                ₹{calculation?.monthlyEMI.toLocaleString('en-IN')}
+                ₹{calculation.monthlyEMI.toLocaleString("en-IN")}
               </div>
               <div className="text-sm opacity-90">Monthly EMI</div>
             </div>
@@ -136,18 +193,18 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
               <div className="flex justify-between p-3 bg-background/50 rounded">
                 <span>Principal Amount</span>
                 <span className="font-semibold">
-                  ₹{calculation?.principalAmount.toLocaleString('en-IN')}
+                  ₹{calculation.principalAmount.toLocaleString("en-IN")}
                 </span>
               </div>
               <div className="flex justify-between p-3 bg-background/50 rounded">
                 <span>Total Interest</span>
                 <span className="font-semibold text-destructive">
-                  ₹{calculation?.totalInterest.toLocaleString('en-IN')}
+                  ₹{calculation.totalInterest.toLocaleString("en-IN")}
                 </span>
               </div>
               <div className="flex justify-between p-3 bg-background/50 rounded font-semibold">
                 <span>Total Amount</span>
-                <span>₹{calculation?.totalAmount.toLocaleString('en-IN')}</span>
+                <span>₹{calculation.totalAmount.toLocaleString("en-IN")}</span>
               </div>
             </div>
           </div>
@@ -172,10 +229,10 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip 
+                <Tooltip
                   formatter={(value: number) => [
-                    `₹${value.toLocaleString('en-IN')}`, 
-                    ''
+                    `₹${value.toLocaleString("en-IN")}`,
+                    "",
                   ]}
                 />
               </PieChart>
@@ -202,11 +259,13 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={yearlyBreakup.slice(0, 10)}>
               <XAxis dataKey="year" />
-              <YAxis tickFormatter={(value) => `₹${(value/100000).toFixed(0)}L`} />
-              <Tooltip 
+              <YAxis
+                tickFormatter={(value) => `₹${(value / 100000).toFixed(0)}L`}
+              />
+              <Tooltip
                 formatter={(value: number, name) => [
-                  `₹${value.toLocaleString('en-IN')}`, 
-                  name === 'principal' ? 'Principal' : 'Interest'
+                  `₹${value.toLocaleString("en-IN")}`,
+                  name === "principal" ? "Principal" : "Interest",
                 ]}
               />
               <Bar dataKey="principal" stackId="a" fill="hsl(var(--primary))" />
@@ -215,40 +274,51 @@ export const EMICalculator: React.FC<EMICalculatorProps> = ({
           </ResponsiveContainer>
         </div>
 
+        {/* Actions */}
         <div className="flex gap-2 pt-4">
-          <Button 
+          <Button
             className="btn-luxury flex-1"
             onClick={() => {
-              const message = `Hi, I'm interested in pre-approved loan for ${calculation?.principalAmount.toLocaleString('en-IN')} at ${interestRate}% for ${tenure} years. EMI: ₹${calculation?.monthlyEMI.toLocaleString('en-IN')}`;
+              const message = `Hi, I'm interested in pre-approved loan for ${calculation.principalAmount.toLocaleString(
+                "en-IN"
+              )} at ${interestRate}% for ${tenure} years. EMI: ₹${calculation.monthlyEMI.toLocaleString(
+                "en-IN"
+              )}`;
               const encodedMessage = encodeURIComponent(message);
-              window.open(`https://wa.me/919999999999?text=${encodedMessage}`, '_blank');
+              window.open(
+                `https://wa.me/919818223938?text=${encodedMessage}`,
+                "_blank"
+              );
             }}
           >
             Get Pre-approved Loan
           </Button>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="flex-1"
             onClick={() => {
-              if (!calculation) return;
               const reportData = `
 EMI CALCULATION REPORT
 ======================
-Loan Amount: ₹${calculation.principalAmount.toLocaleString('en-IN')}
+Loan Amount: ₹${calculation.principalAmount.toLocaleString("en-IN")}
 Interest Rate: ${interestRate}% per annum
 Tenure: ${tenure} years
 
-Monthly EMI: ₹${calculation.monthlyEMI.toLocaleString('en-IN')}
-Total Amount: ₹${calculation.totalAmount.toLocaleString('en-IN')}
-Total Interest: ₹${calculation.totalInterest.toLocaleString('en-IN')}
+Monthly EMI: ₹${calculation.monthlyEMI.toLocaleString("en-IN")}
+Total Amount: ₹${calculation.totalAmount.toLocaleString("en-IN")}
+Total Interest: ₹${calculation.totalInterest.toLocaleString("en-IN")}
 
 Generated on: ${new Date().toLocaleDateString()}
               `;
-              
-              const element = document.createElement('a');
-              element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(reportData));
-              element.setAttribute('download', 'emi-calculation-report.txt');
-              element.style.display = 'none';
+
+              const element = document.createElement("a");
+              element.setAttribute(
+                "href",
+                "data:text/plain;charset=utf-8," +
+                  encodeURIComponent(reportData)
+              );
+              element.setAttribute("download", "emi-calculation-report.txt");
+              element.style.display = "none";
               document.body.appendChild(element);
               element.click();
               document.body.removeChild(element);
