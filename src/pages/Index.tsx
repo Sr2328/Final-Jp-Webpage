@@ -13,6 +13,7 @@ import { Shield, Award, Users, Clock, ArrowRight, Star, CheckCircle, TrendingUp,
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { InteractiveBusinessCard } from '@/components/InteractiveBusinessCard';
 import { Link } from 'react-router-dom';
+import img17 from '@/assets/17.jpg'
 
 const Index = () => {
   const { properties, getFeaturedProperties } = useProperties();
