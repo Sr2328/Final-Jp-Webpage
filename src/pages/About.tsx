@@ -551,7 +551,7 @@ const bankingPartners = [
             whileHover={{ scale: 1.08, boxShadow: "0px 10px 25px rgba(0,0,0,0.1)" }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src={partner.src} alt={partner.alt} className="max-h-12 object-contain" />
+            <img src={partner.image} alt={partner.alt} className="max-h-12 object-contain" />
           </motion.div>
         ))}
       </motion.div>
