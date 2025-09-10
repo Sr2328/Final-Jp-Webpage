@@ -13,7 +13,7 @@ import { Shield, Award, Users, Clock, ArrowRight, Star, CheckCircle, TrendingUp,
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { InteractiveBusinessCard } from '@/components/InteractiveBusinessCard';
 import { Link } from 'react-router-dom';
-import img17 from '@/assets/17.jpg'
+import  image26 from '../assets/26.jpg'
 
 const Index = () => {
   const { properties, getFeaturedProperties } = useProperties();
@@ -494,7 +494,7 @@ const Index = () => {
                 type: "Premium Villas",
                 launchDate: "Q4 2026",
                 startingPrice: "₹7.5 Cr",
-                image: "../../src/assets/26.jpg"
+                image: image26
               },
               {
                 title: "Gokulam The Sanctuary",
