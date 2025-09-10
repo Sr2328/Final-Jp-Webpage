@@ -6,12 +6,12 @@ import  imagehdfc from '../assets/hdfc banl log.png'
 import  imageaxis from '../assets/axis bank logo.png'
 import  imageidfc from '../assets/idfc-first-bank.webp'
 import  imageyesbank from '../assets/yes bank.png'
-import  importm3m from '../assets/images (2).png'
-import  importdlf from '../assets/images (1).png'
-import  importgodrej from '../assets/1509703549-2822.jpg'
-import  importsobha from '../assets/images (4).png'
-import  importkrisumi from '../assets/images (3).png'
-import  importherohomes from '../assets/unnamed.png'
+import  imagem3m from '../assets/images (2).png'
+import  imagedlf from '../assets/images (1).png'
+import  imagegodrej from '../assets/1509703549-2822.jpg'
+import  imagesobha from '../assets/images (4).png'
+import  imagekrisumi from '../assets/images (3).png'
+import  imageherohomes from '../assets/unnamed.png'
 
 const About = () => {
   const milestones = [
@@ -535,12 +535,15 @@ const bankingPartners = [
         }}
       >
         {[
-          { src: "../../src/assets/images (1).png", alt: "DLF" },
-          { src: "../../src/assets/images (2).png", alt: "M3M" },
-          { src: "../../src/assets/1509703549-2822.jpg", alt: "Godrej" },
-          { src: "../../src/assets/images (4).png", alt: "Sobha" },
-          { src: "../../src/assets/images (3).png", alt: "Krisumi" },
-          { src: "../../src/assets/unnamed.png", alt: "Hero Homes" }
+          { image: imagedlf , alt: "DLF" },
+          { image: imagem3m , alt: "M3M" },
+          { image: imagegodrej , alt: "Godrej" },
+          { image: imagesobha , alt: "Sobha" },
+          { image: imagekrisumi , alt: "Krisumi" }, 
+          { image: imageherohomes , alt: "Hero Homes" }
+        
+          
+          
         ].map((partner, i) => (
           <motion.div
             key={i}
