@@ -60,7 +60,7 @@ const Contact = () => {
       // ✅ Fire Google Ads Conversion
       if (typeof window !== "undefined" && (window as any).gtag) {
         (window as any).gtag("event", "conversion", {
-          send_to: "AW-17541032556/qJUCMiFgpbEOzUm6xB", // <-- Replace with your Conversion ID + Label
+          send_to: "AW-17541032556/wYHfCIqejZgbEOzUm6xB", // <-- Replace with your Conversion ID + Label
           value: 1.0,
           currency: "INR",
         });
