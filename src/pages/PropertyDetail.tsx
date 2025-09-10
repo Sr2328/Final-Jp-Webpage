@@ -144,7 +144,7 @@ const propertyImages = Array.isArray(images) && images.length > 0
       Location: ${formatLocation(property.location)}
       Type: ${formatPropertyType(property.property_type)}
       
-      For detailed price sheet, please contact us at info@example.com
+      For detailed price sheet, please contact us at joginderpropertiesncr@gmail.com Or call +91 9818223938
     `)
     );
     element.setAttribute("download", `${property.title}-price-sheet.txt`);
@@ -426,17 +426,24 @@ const propertyImages = Array.isArray(images) && images.length > 0
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {/* Map Placeholder */}
-                    <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <MapPin className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
-                        <p className="text-muted-foreground">Interactive map coming soon</p>
-                        {property.latitude && property.longitude && (
-                          <p className="text-xs text-muted-foreground mt-1">
-                            {property.latitude}, {property.longitude}
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                <div className="h-64 bg-muted rounded-lg overflow-hidden">
+  {property.latitude && property.longitude ? (
+    <iframe
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      loading="lazy"
+      allowFullScreen
+      referrerPolicy="no-referrer-when-downgrade"
+      src={`https://www.google.com/maps?q=${property.latitude},${property.longitude}&output=embed`}
+    />
+  ) : (
+    <div className="flex items-center justify-center h-full text-center">
+      <MapPin className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
+      <p className="text-muted-foreground">Location details coming soon</p>
+    </div>
+  )}
+</div>
 
                     {/* Connectivity */}
                     {property.connectivity_details && (

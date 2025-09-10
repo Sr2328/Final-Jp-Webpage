@@ -28,6 +28,7 @@ const Index = () => {
   const featuredUpdates = getFeaturedUpdates();
 
   const promoProperty = {
+    propertyid: "d6c0e1c3-5acd-415d-a05c-48bd0acde1c0",
     title: "Gokulam The Sanctuary",
     location: "Sector 7, Sohna",
     type: "Luxury Apartments",
@@ -274,13 +275,16 @@ const Index = () => {
                 Book Site Visit
               </Button>
             </Link>
-            
-            <Link to="/properties" className="block">
-              <Button variant="outline" className="w-full py-3 rounded-xl font-semibold text-sm md:text-lg hover:bg-gray-50">
-                <Eye className="w-5 h-5 mr-2" />
-                View More Details
-              </Button>
-            </Link>
+           <Link to={`/property/${promoProperty.propertyid}`} className="block">
+  <Button
+    variant="outline"
+    className="w-full py-3 rounded-xl font-semibold text-sm md:text-lg hover:bg-gray-50"
+  >
+    <Eye className="w-5 h-5 mr-2" />
+    View More Details
+  </Button>
+</Link>
+
           </div>
 
           {/* Contact Info */}
