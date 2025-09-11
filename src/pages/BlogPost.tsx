@@ -70,7 +70,7 @@ const BlogPost = () => {
     `,
     excerpt: 'Comprehensive analysis of Delhi NCR real estate market trends, investment opportunities, and expert predictions for 2024.',
     image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop',
-    author: 'Joginder Singh',
+    author: 'Dheeraj Satija',
     authorImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
     date: '2024-01-15',
     category: 'Investment',
@@ -182,8 +182,8 @@ const BlogPost = () => {
                 <div className="flex-1">
                   <h4 className="font-semibold text-lg mb-2">{blogPost.author}</h4>
                   <p className="text-muted-foreground mb-3">
-                    Joginder Singh is a RERA-certified real estate expert with over 15 years of experience 
-                    in the Delhi NCR, Mumbai, and Goa markets. He specializes in investment advisory, 
+                   Dheeraj Satija is a RERA-certified real estate expert with over 15 years of experience 
+                    in the  Gurgao, Delhi NCR, Mumbai, and Goa markets. He specializes in investment advisory, 
                     luxury properties, and helping families find their dream homes.
                   </p>
                   <Button className="btn-luxury">View All Articles</Button>

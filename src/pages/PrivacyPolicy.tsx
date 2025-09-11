@@ -55,7 +55,7 @@ export default function PrivacyPolicy(): JSX.Element {
           </div>
 
           <p className="mt-6 text-slate-600 leading-relaxed">
-            Joginder Properties ("we", "us", "our") is committed to protecting and respecting your privacy. This
+           Satija Properties ("we", "us", "our") is committed to protecting and respecting your privacy. This
             document explains what information we collect, why we collect it, how we use it, and the choices you have.
             We built this policy to be simple, honest, and compliant with major ad platforms (Google Ads, Meta Ads).
           </p>
@@ -143,7 +143,7 @@ export default function PrivacyPolicy(): JSX.Element {
           <h3 className="text-2xl font-semibold mb-4">Contact & updates</h3>
           <p className="text-slate-600">Questions about this policy or requests about your data? Reach out:</p>
           <div className="mt-4 flex flex-col sm:flex-row gap-3">
-            <a href="mailto:info@joginderproperties.com" className="inline-block px-4 py-2 rounded-lg bg-slate-800 text-white">Email Us</a>
+            <a href="mailto:satijaproperties@gmail.com" className="inline-block px-4 py-2 rounded-lg bg-slate-800 text-white">Email Us</a>
             <a href="tel:+919205413041" className="inline-block px-4 py-2 rounded-lg border">Call +91 9205413041</a>
           </div>
 

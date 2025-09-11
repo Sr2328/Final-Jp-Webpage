@@ -14,7 +14,7 @@ const Blog = () => {
     title: 'Real Estate Investment Guide 2024: Delhi NCR Market Outlook',
     excerpt: 'Comprehensive analysis of Delhi NCR real estate market trends, investment opportunities, and expert predictions for 2024.',
     image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop',
-    author: 'Joginder Singh',
+    author: 'Dheeraj Satija',
     date: '2024-01-15',
     category: 'Investment',
     readTime: '8 min read',

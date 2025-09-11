@@ -100,7 +100,7 @@ const Contact = () => {
     city: 'Gurgaon (Head Office - Sec 81)',
     address: 'Sector 81, Gurgaon, Haryana',
     phone: '+919205413041',
-    email: 'joginderpropertiesncr@gmail.com',
+    email: 'satijaproperties.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: true
   },
@@ -108,7 +108,7 @@ const Contact = () => {
     city: 'Gurgaon (Branch - Sec 70)',
     address: 'Sector 70, Gurgaon, Haryana',
     phone: '+91 9205413041',
-    email: 'joginderpropertiesncr@gmail.com',
+    email: 'satijaproperties.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: false
   },
@@ -116,7 +116,7 @@ const Contact = () => {
     city: 'Gurgaon (Branch - Sec 48)',
     address: 'Sector 48, Gurgaon, Haryana',
     phone: '+919205413041',
-    email: 'joginderpropertiesncr@gmail.com',
+    email: 'satijaproperties.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: false
   }
@@ -168,7 +168,7 @@ const Contact = () => {
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row justify-center gap-4">
       <a
-        href="mailto:joginderpropertiesncr@gmail.com"
+        href="mailto:satijaproperties.com"
         className="px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
       >
         Email Us
@@ -450,7 +450,7 @@ const Contact = () => {
         <section className="mt-16 py-12 bg-gradient-subtle rounded-2xl">
           <div className="text-center mb-8">
             <h3 className="font-playfair text-2xl font-bold text-foreground mb-4">
-              Why Choose Joginder Properties?
+              Why Choose Satija Properties?
             </h3>
           </div>
           

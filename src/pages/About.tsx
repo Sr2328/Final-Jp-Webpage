@@ -31,18 +31,18 @@ const About = () => {
 
   const team = [
    {
-  name: 'Joginder Yadav',
+  name: 'Dheeraj Satija',
   role: 'Founder & CEO',
   experience: '15+ Years',
-  image: imagejpprofile,
+  image: imagedhiraj,
   description: 'Visionary leader with extensive experience in Delhi NCR real estate market.'
 },
 
 {
-  name: 'Dhiraj Satija',
+  name: 'Joginder Yadav',
   role: 'Legal Advisor',
   experience: '10+ Years',
-  image: imagedhiraj,
+  image: imagejpprofile,
   description: 'Ensures all transactions are legally compliant and transparent.'
 },
 {
@@ -112,19 +112,19 @@ const About = () => {
   city: 'Gurugram (Sector 81)',
   address: 'Sector 81, Gurugram, Haryana',
   phone: '+91 9205413041',
-  email: 'joginderpropertiesncr@gmail.com'
+  email: 'satijaproperties.com'
 },
 {
   city: 'Gurugram (Sector 70)',
   address: 'Sector 70, Gurugram, Haryana',
   phone: '+91 9205413041',
-  email: 'joginderpropertiesncr@gmail.com'
+  email: 'satijaproperties.com'
 },
 {
   city: 'Gurugram (Sector 48)',
   address: 'Sector 48, Gurugram, Haryana',
   phone: '+91 9205413041 / +91 9711197200',
-  email: 'joginderpropertiesncr@gmail.com'
+  email: 'satijaproperties.com'
 }
 
   ];
@@ -179,7 +179,7 @@ const bankingPartners = [
           className="space-y-6"
         >
           <h1 className="font-playfair text-4xl md:text-6xl font-bold leading-tight">
-            About <span className="text-yellow-400">Joginder Properties</span>
+            About <span className="text-yellow-400">Satija Properties</span>
           </h1>
           <p className="text-lg text-white/90 leading-relaxed">
             For over a decade, we've been the trusted bridge between dreams and reality, 
@@ -265,7 +265,7 @@ const bankingPartners = [
                 Our Story
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Founded in 2014 by Joginder Singh, our company started with a simple yet powerful vision: 
+                Founded in 2014 by Dheeraj Satija, our company started with a simple yet powerful vision: 
                 to make property buying transparent, trustworthy, and accessible to every family.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -338,7 +338,7 @@ const bankingPartners = [
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 Transparency, Trust, Excellence, and Customer-centricity form the foundation 
-                of everything we do at Joginder Properties.
+                of everything we do at Satija Properties.
               </p>
             </div>
           </div>
@@ -595,7 +595,7 @@ const bankingPartners = [
         <h3 className="text-xl font-semibold text-foreground mb-4">RERA Registration Details</h3>
         <ul className="space-y-2 text-muted-foreground">
           <li><span className="font-medium text-foreground">Registration No:</span> RC/HRERA/GGM/2524/1130/2024/237</li>
-          <li><span className="font-medium text-foreground">Issued To:</span> Mr. Joginder</li>
+          <li><span className="font-medium text-foreground">Issued To:</span> Mr. Dheeraj Satija</li>
           <li><span className="font-medium text-foreground">Role:</span> Real Estate Agent</li>
           <li><span className="font-medium text-foreground">Office Address:</span> Unit No. 211, 1st Floor, Block-B1, Elan Corner Walk, Sector-74, Gurugram, Haryana – 122004</li>
           <li><span className="font-medium text-foreground">Approval Date:</span> 03 April 2024</li>

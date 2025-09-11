@@ -70,7 +70,7 @@ const Index = () => {
       name: 'Rajesh Kumar',
       location: 'Gurgaon',
       rating: 5,
-      text: 'Joginder Properties helped us find our dream 3BHK in Gurgaon. Their transparency and support throughout the process was exceptional.',
+      text: 'Satija helped us find our dream 3BHK in Gurgaon. Their transparency and support throughout the process was exceptional.',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
     },
     {
@@ -310,7 +310,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Why Choose Joginder Properties?
+              Why Choose Satija Properties?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Your trusted partner in finding the perfect property with complete transparency and support
@@ -683,7 +683,7 @@ const Index = () => {
               What Our Clients Say
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Real stories from families who found their dream homes with Joginder Properties
+              Real stories from families who found their dream homes with Satija Properties
             </p>
           </div>
 
