@@ -426,8 +426,9 @@ const propertyImages = Array.isArray(images) && images.length > 0
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {/* Map Placeholder */}
-                <div className="h-64 bg-muted rounded-lg overflow-hidden">
-  {property.latitude && property.longitude ? (
+              {/* Map Placeholder */}
+<div className="h-64 bg-muted rounded-lg overflow-hidden">
+  {property.latitude != null && property.longitude != null ? (
     <iframe
       width="100%"
       height="100%"
@@ -435,7 +436,8 @@ const propertyImages = Array.isArray(images) && images.length > 0
       loading="lazy"
       allowFullScreen
       referrerPolicy="no-referrer-when-downgrade"
-      src={`https://www.google.com/maps?q=${property.latitude},${property.longitude}&output=embed`}
+      // ✅ Build embed map dynamically using lat/lng
+      src={`https://maps.google.com/maps?q=${property.latitude},${property.longitude}&z=15&output=embed`}
     />
   ) : (
     <div className="flex items-center justify-center h-full text-center">
@@ -445,42 +447,48 @@ const propertyImages = Array.isArray(images) && images.length > 0
   )}
 </div>
 
+
                     {/* Connectivity */}
-                    {property.connectivity_details && (
-                      <div>
-                        <h4 className="font-semibold mb-3">Connectivity</h4>
-                        <div className="space-y-2">
-                          {property.connectivity_details.map((detail: string, index: number) => (
-                            <div key={index} className="flex items-center gap-2">
-                              <Clock className="w-4 h-4 text-blue-500" />
-                              <span className="text-sm">{detail}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    {Array.isArray(property.connectivity_details) && property.connectivity_details.length > 0 && (
+  <div>
+    <h4 className="font-semibold mb-3">Connectivity</h4>
+    <div className="space-y-2">
+      {property.connectivity_details.map((detail, index) => (
+        <div key={index} className="flex items-center gap-2">
+          <Clock className="w-4 h-4 text-blue-500" />
+          <span className="text-sm">{detail}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
                     {/* Nearby Landmarks */}
-                    {property.nearby_landmarks && (
-                      <div>
-                        <h4 className="font-semibold mb-3">Nearby Landmarks</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {Object.entries(property.nearby_landmarks).map(([category, places]) => (
-                            <div key={category}>
-                              <h5 className="font-medium capitalize mb-2">{category}</h5>
-                              <ul className="space-y-1">
-                                {(places as string[]).map((place: string, index: number) => (
-                                  <li key={index} className="text-sm text-muted-foreground flex items-center gap-1">
-                                    <CheckCircle className="w-3 h-3" />
-                                    {place}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                   {property.nearby_landmarks && typeof property.nearby_landmarks === "object" && (
+  <div>
+    <h4 className="font-semibold mb-3">Nearby Landmarks</h4>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {Object.entries(property.nearby_landmarks).map(([category, places]) => (
+        <div key={category}>
+          <h5 className="font-medium capitalize mb-2">{category}</h5>
+          <ul className="space-y-1">
+            {Array.isArray(places) &&
+              places.map((place, index) => (
+                <li
+                  key={index}
+                  className="text-sm text-muted-foreground flex items-center gap-1"
+                >
+                  <CheckCircle className="w-3 h-3" />
+                  {place}
+                </li>
+              ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
                   </CardContent>
                 </Card>
               </TabsContent>
