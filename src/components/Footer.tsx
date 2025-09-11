@@ -67,8 +67,9 @@ export const Footer: React.FC = () => {
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 mt-0.5 text-luxury-foreground flex-shrink-0" />
                 <div>
-                  <p> Sector 81</p>
-                  <p>Gurgaon, Haryana 122001</p>
+               <p> Building No. 28, Tower A,</p>
+<p>Spaze Corporate Park,</p>
+<p>Sector-69, Gurugram – 122018, Haryana</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">

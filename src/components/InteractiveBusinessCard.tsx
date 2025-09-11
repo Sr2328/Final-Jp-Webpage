@@ -17,14 +17,14 @@ import {
 export const InteractiveBusinessCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const businessInfo = {
-    name: "Satija",
+    name: " Dheeraj Satija",
     title: "Founder & CEO",
     company: "Satija Properties",
     tagline: "Your Trusted Property Investment Partner",
     phone: "+91 9205413041",
     email: "propertiessatija@gmail.com",
-    website: "www.satijaproperties.com",
-    address: "Sector 81, Gurgaon, Haryana, India",
+    website: "www.satijaproperties.it.com",
+    address: "Sector 69, Gurgaon, Haryana, India",
     experience: "15+ Years Experience",
     specialties: ["Luxury Properties", "Commercial Spaces", "Investment Advisory", "RERA Certified"]
   };

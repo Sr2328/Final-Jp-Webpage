@@ -109,22 +109,22 @@ const About = () => {
 
   const offices = [
    {
+  city: 'Gurugram (Sector 69)',
+  address: 'Sector 69, Gurugram, Haryana',
+  phone: '+91 9205413041',
+  email: 'satijaproperties.it.com'
+},
+{
   city: 'Gurugram (Sector 81)',
   address: 'Sector 81, Gurugram, Haryana',
   phone: '+91 9205413041',
-  email: 'satijaproperties.com'
-},
-{
-  city: 'Gurugram (Sector 70)',
-  address: 'Sector 70, Gurugram, Haryana',
-  phone: '+91 9205413041',
-  email: 'satijaproperties.com'
+  email: 'satijaproperties.it.com'
 },
 {
   city: 'Gurugram (Sector 48)',
   address: 'Sector 48, Gurugram, Haryana',
-  phone: '+91 9205413041 / +91 9711197200',
-  email: 'satijaproperties.com'
+  phone: '+91 9205413041',
+  email: 'satijaproperties.it.com'
 }
 
   ];

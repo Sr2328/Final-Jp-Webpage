@@ -97,18 +97,18 @@ const Contact = () => {
 
   const offices = [
   {
-    city: 'Gurgaon (Head Office - Sec 81)',
-    address: 'Sector 81, Gurgaon, Haryana',
+    city: 'Gurgaon (Head Office - Sec 69)',
+    address: 'Sector 69, Gurgaon, Haryana',
     phone: '+919205413041',
-    email: 'satijaproperties.com',
+    email: 'satijaproperties.it.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: true
   },
   {
-    city: 'Gurgaon (Branch - Sec 70)',
-    address: 'Sector 70, Gurgaon, Haryana',
+    city: 'Gurgaon (Branch - Sec 81)',
+    address: 'Sector 81, Gurgaon, Haryana',
     phone: '+91 9205413041',
-    email: 'satijaproperties.com',
+    email: 'satijaproperties.it.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: false
   },
@@ -116,7 +116,7 @@ const Contact = () => {
     city: 'Gurgaon (Branch - Sec 48)',
     address: 'Sector 48, Gurgaon, Haryana',
     phone: '+919205413041',
-    email: 'satijaproperties.com',
+    email: 'satijaproperties.it.com',
     hours: 'Mon-Sun: 9:00 AM - 7:00 PM',
     featured: false
   }
@@ -168,7 +168,7 @@ const Contact = () => {
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row justify-center gap-4">
       <a
-        href="mailto:satijaproperties.com"
+        href="mailto:satijaproperties.it.com"
         className="px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
       >
         Email Us
