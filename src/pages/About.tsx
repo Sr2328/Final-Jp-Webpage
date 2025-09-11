@@ -265,7 +265,7 @@ const bankingPartners = [
                 Our Story
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Founded in 2014 by Dheeraj Satija, our company started with a simple yet powerful vision: 
+                Founded in 2005 by Dheeraj Satija, our company started with a simple yet powerful vision: 
                 to make property buying transparent, trustworthy, and accessible to every family.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -280,7 +280,7 @@ const bankingPartners = [
             </div>
             <div className="relative">
               <img
-                src="https://i.postimg.cc/P5DNzFj7/ABOUT.png?w=600&h=400&fit=crop"
+                src="https://i.postimg.cc/QMF0PRFH/Purple-and-Yellow-Illustrated-Hotel-Banner-1.png"
                 alt="Our Office"
                 className="rounded-2xl shadow-luxury w-full"
               />
