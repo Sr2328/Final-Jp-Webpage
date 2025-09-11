@@ -25,13 +25,13 @@ export const DigitalBusinessCard: React.FC<BusinessCardProps> = ({ children }) =
   const [showQR, setShowQR] = useState(false);
 
   const businessInfo = {
-    name: "Joginder Yadav",
+    name: "Satija",
     title: "Founder & CEO",
-    company: "Joginder Properties",
+    company: "Satija Properties",
     tagline: "Your Trusted Property Investment Partner",
     phone: "+91 9205413041",
-    email: "joginderpropertiesncr@gmail.com",
-    website: "www.joginderproperties.com",
+    email: "satijapropertiesncr@gmail.com",
+    website: "www.satijaproperties.com",
     address: "Sector 81, Gurgaon, Haryana, India",
     experience: "15+ Years Experience",
     specialties: ["Luxury Properties", "Commercial Spaces", "Investment Advisory", "RERA Certified"]
@@ -67,7 +67,7 @@ END:VCARD`;
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'joginder-singh.vcf';
+    link.download = 'satija-properties.vcf';
     link.click();
     window.URL.revokeObjectURL(url);
   };

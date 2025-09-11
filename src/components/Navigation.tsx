@@ -44,7 +44,7 @@ const Navigation = () => {
             </div>
             <div>
               <h1 className="font-playfair font-bold text-xl text-gray-900">
-                Joginder Properties
+                Satija Properties
               </h1>
               <p className="text-xs text-gray-500 -mt-1">
                 From Land to Luxury All in one Place

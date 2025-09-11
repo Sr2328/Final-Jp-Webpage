@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="font-playfair text-2xl font-bold text-luxury-foreground">
-              Joginder Properties
+             Satija Properties
             </h3>
             <p className="text-background/80 leading-relaxed">
               Your trusted partner in real estate investment. We specialize in premium properties 
@@ -79,8 +79,8 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-luxury-foreground" />
-                <a href="mailto:info@joginderproperties.com" className="hover:text-luxury-foreground transition-colors">
-              propertiessatija@gmail.com
+                <a href="mailto:info@satijaproperties.com" className="hover:text-luxury-foreground transition-colors">
+                  propertiessatija@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -118,7 +118,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/20 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-background/60 text-sm">
-            © {currentYear} Joginder Properties. All rights reserved.
+            © {currentYear} Satija Properties. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-background/60">
               <Link

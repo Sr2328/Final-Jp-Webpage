@@ -39,7 +39,7 @@ const About = () => {
 },
 
 {
-  name: 'Joginder Yadav',
+  name: 'Satija',
   role: 'Legal Advisor',
   experience: '10+ Years',
   image: imagejpprofile,

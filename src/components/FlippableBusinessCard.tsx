@@ -26,13 +26,13 @@ export const FlippableBusinessCard: React.FC<FlippableBusinessCardProps> = ({ ch
   const [isFlipped, setIsFlipped] = useState(false);
 
   const businessInfo = {
-    name: "Joginder Singh",
+    name: "Satija ",
     title: "Real Estate Consultant", 
-    company: "Joginder Properties",
+    company: "Satija Properties",
     tagline: "Your Trusted Property Investment Partner",
     phone: "+91 98765 43210",
-    email: "joginder@joginderproperties.com",
-    website: "www.joginderproperties.com",
+    email: "satija@satijaproperties.com",
+    website: "www.satijaproperties.com",
     address: "Plot No. 123, Sector 14, Gurgaon, Haryana 122001",
     experience: "15+ Years Experience",
     specialties: ["Luxury Properties", "Commercial Spaces", "Investment Advisory", "RERA Certified"],
@@ -74,7 +74,7 @@ END:VCARD`;
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'joginder-singh.vcf';
+    link.download = 'satija.vcf';
     link.click();
     window.URL.revokeObjectURL(url);
   };
