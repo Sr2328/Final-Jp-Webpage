@@ -576,7 +576,7 @@ const bankingPartners = [
 
 
       {/* RERA Section */}
-      <section className="py-20">
+   <section className="py-20">
   <div className="container mx-auto px-4">
     <div className="card-premium text-center max-w-4xl mx-auto">
       <div className="w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -594,11 +594,12 @@ const bankingPartners = [
       <div className="bg-muted rounded-2xl shadow-lg p-6 mb-10 text-left">
         <h3 className="text-xl font-semibold text-foreground mb-4">RERA Registration Details</h3>
         <ul className="space-y-2 text-muted-foreground">
-          <li><span className="font-medium text-foreground">Registration No:</span> RC/HRERA/GGM/2524/1130/2024/237</li>
+          <li><span className="font-medium text-foreground">Registration No:</span> RC/HRERA/GGM/665/1260/2022/23</li>
+          <li><span className="font-medium text-foreground">Property Dealer License No:</span> 2251/2017/OC/R/GP/2016</li>
           <li><span className="font-medium text-foreground">Issued To:</span> Mr. Dheeraj Satija</li>
           <li><span className="font-medium text-foreground">Role:</span> Real Estate Agent</li>
-          <li><span className="font-medium text-foreground">Office Address:</span> Unit No. 211, 1st Floor, Block-B1, Elan Corner Walk, Sector-74, Gurugram, Haryana – 122004</li>
-          <li><span className="font-medium text-foreground">Approval Date:</span> 03 April 2024</li>
+          <li><span className="font-medium text-foreground">Office Address:</span> Cabin No. 5, 3rd Floor, Ocus Quantum, Golf Course Road, Gurugram – 122011</li>
+          <li><span className="font-medium text-foreground">Approval Date:</span> 09 February 2022</li>
           <li><span className="font-medium text-foreground">Issued By:</span> HARERA Gurugram</li>
         </ul>
       </div>
@@ -621,6 +622,7 @@ const bankingPartners = [
     </div>
   </div>
 </section>
+
 
     </div>
     </div>
