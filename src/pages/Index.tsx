@@ -86,6 +86,27 @@ const Index = () => {
       rating: 5,
       text: 'Professional team with deep market knowledge. Made our property investment journey smooth and hassle-free.',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
+    },
+    {
+      name: 'Sneha Verma',
+      location: 'Noida',
+      rating: 5,
+      text: 'From consultation to handover, Satija Properties was with us every step of the way. Truly a customer-first approach.',
+      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&crop=face'
+    },
+    {
+      name: 'Vikram Singh',
+      location: 'Goa',
+      rating: 5,
+      text: 'Their expertise in the Goa real estate market helped us find a beautiful villa at an amazing price. Very satisfied!',
+      image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop&crop=face'
+    },
+    {
+      name: 'Anjali Mehta',
+      location: 'Faridabad',
+      rating: 5,
+      text: 'Satija Properties made buying our first home a delightful experience. Their team is knowledgeable and trustworthy.',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face'
     }
   ];
 
@@ -676,44 +697,88 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Real stories from families who found their dream homes with Satija Properties
-            </p>
-          </div>
+     
+<section className="py-16 bg-muted/30">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-3">
+        What Our Clients Say
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+        Real stories from families who found their dream homes with Satija Properties
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="card-premium animate-scale-in">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-luxury fill-current" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                  </div>
-                </div>
+    {/* Auto-scroll container */}
+    <div className="overflow-hidden">
+      <div className="flex animate-scroll-x gap-4">
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="min-w-[160px] md:min-w-[180px] bg-white shadow-md rounded-xl p-3 flex-shrink-0"
+          >
+            {/* Rating */}
+            <div className="flex items-center mb-2">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 text-luxury fill-current" />
+              ))}
+            </div>
+
+            {/* Testimonial text */}
+            <p className="text-muted-foreground mb-3 text-xs leading-snug line-clamp-4">
+              "{testimonial.text}"
+            </p>
+
+            {/* Profile */}
+            <div className="flex items-center">
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-8 h-8 rounded-full object-cover mr-2"
+              />
+              <div>
+                <h4 className="font-semibold text-foreground text-xs leading-tight">
+                  {testimonial.name}
+                </h4>
+                <p className="text-[10px] text-muted-foreground">{testimonial.location}</p>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+
+        {/* Duplicate for infinite loop */}
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={`dup-${index}`}
+            className="min-w-[160px] md:min-w-[180px] bg-white shadow-md rounded-xl p-3 flex-shrink-0"
+          >
+            <div className="flex items-center mb-2">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 text-luxury fill-current" />
+              ))}
+            </div>
+            <p className="text-muted-foreground mb-3 text-xs leading-snug line-clamp-4">
+              "{testimonial.text}"
+            </p>
+            <div className="flex items-center">
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-8 h-8 rounded-full object-cover mr-2"
+              />
+              <div>
+                <h4 className="font-semibold text-foreground text-xs leading-tight">
+                  {testimonial.name}
+                </h4>
+                <p className="text-[10px] text-muted-foreground">{testimonial.location}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero text-white">

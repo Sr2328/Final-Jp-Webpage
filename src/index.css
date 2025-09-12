@@ -375,3 +375,12 @@ html {
     @apply text-sm px-4 py-2;
   }
 }
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-x {
+  display: flex;
+  animation: scroll-x 10s linear infinite;
+}
