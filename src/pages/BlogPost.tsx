@@ -69,9 +69,9 @@ const BlogPost = () => {
       <p>For personalized investment advice based on your budget and requirements, consult with our RERA-certified real estate experts.</p>
     `,
     excerpt: 'Comprehensive analysis of Delhi NCR real estate market trends, investment opportunities, and expert predictions for 2024.',
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop',
+    image: 'https://i.postimg.cc/fLTWsrHX/dhirajnew.jpg',
     author: 'Dheeraj Satija',
-    authorImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+    authorImage: 'https://i.postimg.cc/fLTWsrHX/dhirajnew.jpg',
     date: '2024-01-15',
     category: 'Investment',
     readTime: '8 min read',
@@ -183,7 +183,7 @@ const BlogPost = () => {
                   <h4 className="font-semibold text-lg mb-2">{blogPost.author}</h4>
                   <p className="text-muted-foreground mb-3">
                    Dheeraj Satija is a RERA-certified real estate expert with over 15 years of experience 
-                    in the  Gurgao, Delhi NCR, Mumbai, and Goa markets. He specializes in investment advisory, 
+                    in the  Gurgaon, Delhi NCR, Mumbai, and Goa markets. He specializes in investment advisory, 
                     luxury properties, and helping families find their dream homes.
                   </p>
                   <Button className="btn-luxury">View All Articles</Button>
@@ -203,7 +203,12 @@ const BlogPost = () => {
                 Our experts are ready to help you make informed investment decisions.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button className="btn-luxury">Book Free Consultation</Button>
+                <Link to="/contact">
+                
+                <Button variant="outline" className="btn-luxury"
+                >Book Free Consultation</Button>
+
+                </Link>
                 <Link to="/properties">
                   <Button variant="outline">Explore Properties</Button>
                 </Link>
