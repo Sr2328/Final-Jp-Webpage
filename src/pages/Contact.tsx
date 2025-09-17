@@ -62,7 +62,7 @@ const Contact = () => {
         (window as any).gtag("event", "conversion", {
           send_to: "AW-17576037200/2q9zCJzVuJwbENCW9LxB", // <-- Replace with your Conversion ID + Label
           value: 1.0,
-          currency: "DOLLAR",
+          currency: "INR",
         });
       }
 
